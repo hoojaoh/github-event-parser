@@ -30,22 +30,22 @@ class ForkEvent extends AbstractEventType
     public $repository;
     public $forker;
 
-    static public function name()
+    public static function name()
     {
         return 'ForkEvent';
     }
 
-    static public function fields()
+    public static function fields()
     {
         return ['forkee'];
     }
 
     public function createFromData($data)
     {
-        $this->forkedRepository    = Repository::createFromData($data['forkee']);
-        $this->owner               = $this->forkedRepository->getOwner();
-        $this->repository          = Repository::createFromData($data['repository']);
-        $this->forker              = $this->repository->getOwner();
+        $this->forkedRepository = Repository::createFromData($data['forkee']);
+        $this->owner = $this->forkedRepository->getOwner();
+        $this->repository = Repository::createFromData($data['repository']);
+        $this->forker = $this->repository->getOwner();
 
         return $this;
     }

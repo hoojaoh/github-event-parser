@@ -27,9 +27,9 @@ class WebhookResolver
 {
     public function resolve(array $data)
     {
-        foreach($this->eventsType() as $eventType) {
+        foreach ($this->eventsType() as $eventType) {
             if ($eventType['class']::isValid($data)) {
-                return (new $eventType['class'])->createFromData($data);
+                return (new $eventType['class']())->createFromData($data);
             }
         }
 
@@ -41,20 +41,23 @@ class WebhookResolver
         $classes = [
             'Lpdigital\Github\EventType\IssueCommentEvent',
             'Lpdigital\Github\EventType\ForkEvent',
-            'Lpdigital\Github\EventType\DeploymentStatusEvent'
+            'Lpdigital\Github\EventType\DeploymentStatusEvent',
         ];
 
         $eventTypes = [];
 
-        foreach($classes as $className) {
+        foreach ($classes as $className) {
             $name = $className::name();
             $fields = $className::fields();
 
             $eventTypes[$name] = ['class' => $className, 'priority' => count($fields)];
         }
 
-        usort($eventTypes, function($a, $b) {
-            if ($a['priority'] == $b['priority']) return 0;
+        usort($eventTypes, function ($a, $b) {
+            if ($a['priority'] == $b['priority']) {
+                return 0;
+            }
+
                 return ($a['priority'] < $b['priority']) ? 1 : -1;
         });
 

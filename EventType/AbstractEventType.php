@@ -23,16 +23,19 @@ namespace Lpdigital\Github\EventType;
 
 abstract class AbstractEventType implements GithubEventInterface
 {
-    static public function fields() {
+    public static function fields()
+    {
         return [];
     }
 
-    static public function name() {
+    public static function name()
+    {
         return get_called_class();
     }
 
-    static public function isValid($data) {
-        foreach(static::fields() as $field) {
+    public static function isValid($data)
+    {
+        foreach (static::fields() as $field) {
             if (!isset($data[$field])) {
                 return false;
             }

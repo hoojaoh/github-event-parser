@@ -27,16 +27,16 @@ class Label
     private $name;
     private $color;
 
-    static public function createFromData(array $data)
+    public static function createFromData(array $data)
     {
         return new static($data);
     }
 
     public function __construct($data)
     {
-        $this->url      = $data['url'];
-        $this->name     = $data['name'];
-        $this->color    = $data['color'];
+        $this->url = $data['url'];
+        $this->name = $data['name'];
+        $this->color = $data['color'];
     }
 
     /**

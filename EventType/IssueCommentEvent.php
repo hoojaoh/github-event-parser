@@ -30,12 +30,12 @@ class IssueCommentEvent extends AbstractEventType
     public $user;
     public $comment;
 
-    static public function name()
+    public static function name()
     {
         return 'IssueCommentEvent';
     }
 
-    static public function fields()
+    public static function fields()
     {
         return ['action', 'issue', 'comment'];
     }

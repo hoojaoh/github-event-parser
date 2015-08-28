@@ -43,32 +43,32 @@ class Issue
     private $closedAt;
     private $body;
 
-    static public function createFromData(array $data)
+    public static function createFromData(array $data)
     {
         return new static($data);
     }
 
     public function __construct($data)
     {
-        $this->url              = $data['url'];
-        $this->labelsUrl        = $data['labels_url'];
-        $this->commentsUrl      = $data['comments_url'];
-        $this->eventsUrl        = $data['events_url'];
-        $this->htmlUrl          = $data['html_url'];
-        $this->id               = $data['id'];
-        $this->number           = $data['number'];
-        $this->title            = $data['title'];
-        $this->user             = User::createFromData($data['user']);
-        $this->labels           = $this->buildLabels($data['labels']);
-        $this->state            = $data['state'];
-        $this->isLocked         = $data['locked'];
-        $this->assignee         = isset($data['assignee'])?User::createFromData($data['assignee']):null;
-        $this->milestone        = isset($data['milestone'])?:null;
-        $this->commentsCount    = $data['comments'];
-        $this->createdAt        = $data['created_at'];
-        $this->updatedAt        = $data['updated_at'];
-        $this->closedAt         = $data['closed_at'];
-        $this->body             = $data['body'];
+        $this->url = $data['url'];
+        $this->labelsUrl = $data['labels_url'];
+        $this->commentsUrl = $data['comments_url'];
+        $this->eventsUrl = $data['events_url'];
+        $this->htmlUrl = $data['html_url'];
+        $this->id = $data['id'];
+        $this->number = $data['number'];
+        $this->title = $data['title'];
+        $this->user = User::createFromData($data['user']);
+        $this->labels = $this->buildLabels($data['labels']);
+        $this->state = $data['state'];
+        $this->isLocked = $data['locked'];
+        $this->assignee = isset($data['assignee']) ? User::createFromData($data['assignee']) : null;
+        $this->milestone = isset($data['milestone']) ?: null;
+        $this->commentsCount = $data['comments'];
+        $this->createdAt = $data['created_at'];
+        $this->updatedAt = $data['updated_at'];
+        $this->closedAt = $data['closed_at'];
+        $this->body = $data['body'];
     }
 
     /**
@@ -528,9 +528,10 @@ class Issue
     }
 
     /**
-     * Set the Label collection from an array
+     * Set the Label collection from an array.
      *
      * @param array $labels an array of labels
+     *
      * @return Label[] the collection of labels
      */
     private function buildLabels($labels)
