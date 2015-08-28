@@ -26,16 +26,17 @@ interface GithubEventInterface
     /**
      * @return array array of fields that need to be presents to define the event
      */
-    static public function fields();
+    public static function fields();
 
     /**
      * @return string name event
      */
-    static public function name();
+    public static function name();
 
     /**
      * @param array data array to be set
+     *
      * @return bool validation rule
      */
-    static public function isValid($data);
+    public static function isValid($data);
 }

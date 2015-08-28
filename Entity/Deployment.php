@@ -37,16 +37,27 @@ class Deployment
     private $statusesUrl;
     private $repositoryUrl;
 
-    static public function createFromData(array $data)
+    public static function createFromData(array $data)
     {
         return new static($data);
     }
 
     public function __construct($data)
     {
-
+        $this->url = $data['url'];
+        $this->id = $data['id'];
+        $this->sha = $data['sha'];
+        $this->ref = $data['ref'];
+        $this->task = $data['task'];
+        $this->payload = $data['payload'];
+        $this->environment = $data['environment'];
+        $this->description = $data['description'];
+        $this->creator = User::createFromData($data['creator']);
+        $this->createdAt = $data['created_at'];
+        $this->updatedAt = $data['updated_at'];
+        $this->statusesUrl = $data['statuses_url'];
+        $this->repositoryUrl = $data['repository_url'];
     }
-
 
     /**
      * Gets the value of url.

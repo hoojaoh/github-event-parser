@@ -21,6 +21,9 @@
 
 namespace Lpdigital\Github\EventType;
 
+use Lpdigital\Github\Entity\Deployment;
+use Lpdigital\Github\Entity\Repository;
+use Lpdigital\Github\Entity\User;
 
 class DeploymentStatusEvent extends AbstractEventType
 {
@@ -28,21 +31,21 @@ class DeploymentStatusEvent extends AbstractEventType
     public $repository;
     public $sender;
 
-    static public function name()
+    public static function name()
     {
         return 'DeploymentStatusEvent';
     }
 
-    static public function fields()
+    public static function fields()
     {
         return ['deployment_status', 'deployment', 'repository'];
     }
 
     public function createFromData($data)
     {
-        $this->deployment    = $data['deployment'];
-        $this->repository    = $data['repository'];
-        $this->sender        = $data['sender'];
+        $this->deployment = Deployment::createFromData($data['deployment']);
+        $this->repository = Repository::createFromData($data['repository']);
+        $this->sender = User::createFromData($data['sender']);
 
         return $this;
     }

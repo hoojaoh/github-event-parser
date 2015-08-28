@@ -35,24 +35,24 @@ class Comment
     private $updatedAt;
     private $body;
 
-    static public function createFromData(array $data)
+    public static function createFromData(array $data)
     {
         return new static($data);
     }
 
     public function __construct($data)
     {
-        $this->url         = $data['url'];
-        $this->htmlUrl     = $data['html_url'];
-        $this->id          = $data['id'];
-        $this->user        = User::createFromData($data['user']);
-        $this->position    = isset($data['position'])?:null;
-        $this->line        = isset($data['line'])?:null;
-        $this->path        = isset($data['path'])?:null;
-        $this->commitId    = isset($data['commit_id'])?:null;
-        $this->createdAt   = $data['created_at'];
-        $this->updatedAt   = $data['updated_at'];
-        $this->body        = $data['body'];
+        $this->url = $data['url'];
+        $this->htmlUrl = $data['html_url'];
+        $this->id = $data['id'];
+        $this->user = User::createFromData($data['user']);
+        $this->position = isset($data['position']) ?: null;
+        $this->line = isset($data['line']) ?: null;
+        $this->path = isset($data['path']) ?: null;
+        $this->commitId = isset($data['commit_id']) ?: null;
+        $this->createdAt = $data['created_at'];
+        $this->updatedAt = $data['updated_at'];
+        $this->body = $data['body'];
     }
 
     /**
