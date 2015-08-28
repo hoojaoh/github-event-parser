@@ -302,7 +302,7 @@ class User
      */
     public function setStarredUrl($starredUrl)
     {
-        $this->starrredUrl = $starrredUrl;
+        $this->starredUrl = $starredUrl;
 
         return $this;
     }

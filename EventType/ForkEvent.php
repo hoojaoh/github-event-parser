@@ -21,9 +21,7 @@
 
 namespace Lpdigital\Github\EventType;
 
-use Lpdigital\Github\Entity\Comment;
 use Lpdigital\Github\Entity\Repository;
-use Lpdigital\Github\Entity\User;
 
 class ForkEvent extends AbstractEventType
 {

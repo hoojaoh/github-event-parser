@@ -22,7 +22,6 @@
 namespace Lpdigital\Github\Parser;
 
 use Lpdigital\Github\Exception\EventNotFoundException;
-use Lpdigital\Github\EventType\GithubEventInterface;
 
 class WebhookResolver
 {

@@ -340,7 +340,7 @@ class Issue
      *
      * @return mixed
      */
-    public function getIsLocked()
+    public function isLocked()
     {
         return $this->isLocked;
     }
@@ -352,7 +352,7 @@ class Issue
      *
      * @return self
      */
-    public function setIsLocked($isLocked)
+    public function setLocked($isLocked)
     {
         $this->isLocked = $isLocked;
 

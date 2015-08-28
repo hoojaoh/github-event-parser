@@ -266,7 +266,7 @@ class Repository
      *
      * @return mixed
      */
-    public function getIsPrivate()
+    public function isPrivate()
     {
         return $this->isPrivate;
     }
@@ -278,7 +278,7 @@ class Repository
      *
      * @return self
      */
-    public function setIsPrivate($isPrivate)
+    public function setPrivate($isPrivate)
     {
         $this->isPrivate = $isPrivate;
 
@@ -338,7 +338,7 @@ class Repository
      *
      * @return mixed
      */
-    public function getIsFork()
+    public function isFork()
     {
         return $this->isFork;
     }
@@ -350,7 +350,7 @@ class Repository
      *
      * @return self
      */
-    public function setIsFork($isFork)
+    public function setFork($isFork)
     {
         $this->isFork = $isFork;
 
@@ -1730,7 +1730,7 @@ class Repository
      *
      * @return mixed
      */
-    public function getIsPublic()
+    public function isPublic()
     {
         return $this->isPublic;
     }
@@ -1742,7 +1742,7 @@ class Repository
      *
      * @return self
      */
-    public function setIsPublic($isPublic)
+    public function setPublic($isPublic)
     {
         $this->isPublic = $isPublic;
 

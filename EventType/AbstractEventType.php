@@ -23,7 +23,6 @@ namespace Lpdigital\Github\EventType;
 
 abstract class AbstractEventType implements GithubEventInterface
 {
-    private $action;
     static public function fields() {
         return [];
     }
