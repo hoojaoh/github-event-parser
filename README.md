@@ -31,7 +31,7 @@ For instance, let's consider you have a simple `github-hook.php` file and have i
 include_once('./vendor/autoload.php');
 use Lpdigital\Github\Parser\WebhookResolver;
 
-if (isset ($_POST) {
+if (isset($_POST)) {
      $decodedJson = json_decode($_POST, true);
      $resolver    = new WebhookResolver();
      $event       = $resolver->resolve($decodedJson); // ex: an instance of `IssueCommentEvent`
@@ -53,9 +53,9 @@ You can retrieve the issue, the user and the related comment from this event.
 
 ```php
 <?php
-$issueCommentEvent->issue; // instance of Lpdigital/Entity/Issue
-$issueCommentEvent->user;       // instance of Lpdigital/Entity/User
-$issueCommentEvent->comment;       // instance of Lpdigital/Entity/Comment
+$issueCommentEvent->issue;    // instance of Lpdigital/Entity/Issue
+$issueCommentEvent->user;     // instance of Lpdigital/Entity/User
+$issueCommentEvent->comment;  // instance of Lpdigital/Entity/Comment
 ```
 
 ### ForkEvent
@@ -66,10 +66,10 @@ You can retrieve the forked repository, the owner, the new repository and the "f
 
 ```php
 <?php
-$forkEvent->forkedRepository; // instance of Lpdigital/Entity/Repository
-$forkEvent->owner;       // instance of Lpdigital/Entity/User
-$forkEvent->repository;       // instance of Lpdigital/Entity/Repository
-$forkEvent->forker;       // instance of Lpdigital/Entity/User
+$forkEvent->forkedRepository;  // instance of Lpdigital/Entity/Repository
+$forkEvent->owner;             // instance of Lpdigital/Entity/User
+$forkEvent->repository;        // instance of Lpdigital/Entity/Repository
+$forkEvent->forker;            // instance of Lpdigital/Entity/User
 ```
 
 ### DeploymentStatusEvent
@@ -80,9 +80,9 @@ You can retrieve the deployment, the sender and the related repository.
 
 ```php
 <?php
-$deploymentStatusEvent->deployment; // instance of Lpdigital/Entity/Deployment
+$deploymentStatusEvent->deployment;   // instance of Lpdigital/Entity/Deployment
 $deploymentStatusEvent->sender;       // instance of Lpdigital/Entity/User
-$deploymentStatusEvent->repository;       // instance of Lpdigital/Entity/Repository
+$deploymentStatusEvent->repository;   // instance of Lpdigital/Entity/Repository
 ```
 
 ## Entities
