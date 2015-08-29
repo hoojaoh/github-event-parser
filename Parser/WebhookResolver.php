@@ -39,6 +39,7 @@ class WebhookResolver
     public function eventsType()
     {
         $classes = [
+            'Lpdigital\Github\EventType\IssuesEvent',
             'Lpdigital\Github\EventType\IssueCommentEvent',
             'Lpdigital\Github\EventType\ForkEvent',
             'Lpdigital\Github\EventType\DeploymentStatusEvent',
