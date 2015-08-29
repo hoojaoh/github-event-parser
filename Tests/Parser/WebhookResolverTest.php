@@ -39,6 +39,18 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->webhookResolver = null;
     }
 
+    public function testResolveIssuesEvent()
+    {
+        $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'issue_event.json'), true);
+        $event = $this->webhookResolver->resolve($jsonReceived);
+
+        $this->assertInstanceOf("Lpdigital\Github\EventType\IssuesEvent", $event);
+
+        $this->assertEquals('opened', $event->action);
+        $this->assertEquals('Spelling error in the README file', $event->issue->getTitle());
+        $this->assertEquals('35129377', $event->repository->getId());
+    }
+
     public function testResolveIssueCommitEvent()
     {
         $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'issue_commit_event.json'), true);
