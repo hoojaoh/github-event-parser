@@ -58,6 +58,22 @@ $issueCommentEvent->user;     // instance of Lpdigital/Entity/User
 $issueCommentEvent->comment;  // instance of Lpdigital/Entity/Comment
 ```
 
+### IssuesEvent
+
+> Dispatched Triggered when an issue is assigned, unassigned, labeled, unlabeled, opened, closed, or reopened.
+
+You can retrieve the action, the repository and the sender from this event. When available, you can also get assignee and label.
+
+```php
+<?php
+$issuesEvent->action;      // Can be one of "assigned", "unassigned", "labeled", "unlabeled", "opened", "closed", or "reopened".
+$issuesEvent->assignee;    // optional: the assignee of the issue(Lpdigital/Entity/User)
+$issuesEvent->issue;       // instance of Lpdigital/Entity/Issue
+$issuesEvent->label;       // optional: the label of the issue(Lpdigital/Entity/Label)
+$issuesEvent->repository;  // instance of Lpdigital/Entity/Repository
+$issuesEvent->sender;      // instance of Lpdigital/Entity/User
+```
+
 ### ForkEvent
 
 > Dispatched when someone for the repository
