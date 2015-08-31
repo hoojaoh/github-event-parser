@@ -21,74 +21,36 @@
 
 namespace Lpdigital\Github\EventType;
 
-use Lpdigital\Github\Entity\Issue;
-use Lpdigital\Github\Entity\Label;
+use Lpdigital\Github\Entity\PullRequest;
 use Lpdigital\Github\Entity\Repository;
 use Lpdigital\Github\Entity\User;
 
-class IssuesEvent extends AbstractEventType
+class PullRequestEvent extends AbstractEventType
 {
     public $action;
-    public $assignee;
-    public $issue;
-    public $label;
+    public $number;
+    public $pullRequest;
     public $repository;
     public $sender;
 
     public static function name()
     {
-        return 'IssueEvent';
+        return 'PullRequestEvent';
     }
 
     public static function fields()
     {
-        return ['action', 'issue'];
+        return ['action', 'number', 'pull_request'];
     }
 
     public function createFromData($data)
     {
         $this->action = $data['action'];
-        $this->assignee = isset($data['assignee']) ? User::createFromData($data['assignee']) : null;
-        $this->label = isset($data['label']) ? Label::createFromData($data['label']) : null;
-        $this->issue = Issue::createFromData($data['issue']);
+        $this->number = $data['number'];
+        $this->pullRequest = PullRequest::createFromData($data['pull_request']);
         $this->repository = Repository::createFromData($data['repository']);
         $this->sender = User::createFromData($data['sender']);
 
         return $this;
-    }
-
-    public function isAssigned()
-    {
-        return 'assigned' === $this->action;
-    }
-
-    public function isUnassigned()
-    {
-        return 'unassigned' === $this->action;
-    }
-
-    public function isLabeled()
-    {
-        return 'labeled' === $this->action;
-    }
-
-    public function isUnlabeled()
-    {
-        return 'unlabeled' === $this->action;
-    }
-
-    public function isOpened()
-    {
-        return 'opened' === $this->action;
-    }
-
-    public function isClosed()
-    {
-        return 'closed' === $this->action;
-    }
-
-    public function isReopened()
-    {
-        return 'reopened' === $this->action;
     }
 }
