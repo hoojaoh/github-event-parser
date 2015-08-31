@@ -633,8 +633,6 @@ class PullRequest
     public function getHead()
     {
         throw new NotImplementedException();
-
-        return $this->head;
     }
 
     /**
@@ -659,8 +657,6 @@ class PullRequest
     public function getBase()
     {
         throw new NotImplementedException();
-
-        return $this->base;
     }
 
     /**
@@ -685,8 +681,6 @@ class PullRequest
     public function getLinks()
     {
         throw new NotImplementedException();
-
-        return $this->links;
     }
 
     /**
