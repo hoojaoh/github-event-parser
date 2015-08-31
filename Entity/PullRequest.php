@@ -21,8 +21,6 @@
 
 namespace Lpdigital\Github\Entity;
 
-use Lpdigital\Github\Exception\NotImplementedException;
-
 class PullRequest
 {
     private $url;
@@ -47,9 +45,6 @@ class PullRequest
     private $reviewCommentUrl;
     private $reviewCommentsUrl;
     private $statusesUrl;
-    private $head;
-    private $base;
-    private $links;
     private $isMerged;
     private $isMergeable;
     private $mergeableState;
@@ -621,78 +616,6 @@ class PullRequest
     public function setStatusesUrl($statusesUrl)
     {
         $this->statusesUrl = $statusesUrl;
-
-        return $this;
-    }
-
-    /**
-     * Gets the value of head.
-     *
-     * @return mixed
-     */
-    public function getHead()
-    {
-        throw new NotImplementedException();
-    }
-
-    /**
-     * Sets the value of head.
-     *
-     * @param mixed $head the head
-     *
-     * @return self
-     */
-    public function setHead($head)
-    {
-        $this->head = $head;
-
-        return $this;
-    }
-
-    /**
-     * Gets the value of base.
-     *
-     * @return mixed
-     */
-    public function getBase()
-    {
-        throw new NotImplementedException();
-    }
-
-    /**
-     * Sets the value of base.
-     *
-     * @param mixed $base the base
-     *
-     * @return self
-     */
-    public function setBase($base)
-    {
-        $this->base = $base;
-
-        return $this;
-    }
-
-    /**
-     * Gets the value of links.
-     *
-     * @return mixed
-     */
-    public function getLinks()
-    {
-        throw new NotImplementedException();
-    }
-
-    /**
-     * Sets the value of links.
-     *
-     * @param mixed $links the links
-     *
-     * @return self
-     */
-    public function setLinks($links)
-    {
-        $this->links = $links;
 
         return $this;
     }
