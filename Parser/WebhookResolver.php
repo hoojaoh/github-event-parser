@@ -43,6 +43,7 @@ class WebhookResolver
             'Lpdigital\Github\EventType\IssueCommentEvent',
             'Lpdigital\Github\EventType\ForkEvent',
             'Lpdigital\Github\EventType\DeploymentStatusEvent',
+            'Lpdigital\Github\EventType\PullRequestEvent',
         ];
 
         $eventTypes = [];

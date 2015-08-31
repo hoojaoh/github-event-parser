@@ -86,4 +86,18 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('public-repo', $event->repository->getName());
         $this->assertEquals('User', $event->sender->getType());
     }
+
+    public function testPullRequestEvent()
+    {
+        $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'pull_request_event.json'), true);
+        $event = $this->webhookResolver->resolve($jsonReceived);
+
+        $this->assertInstanceOf("Lpdigital\Github\EventType\PullRequestEvent", $event);
+
+        $this->assertEquals('Update the README with new information', $event->pullRequest->getTitle());
+        $this->assertEquals('opened', $event->action);
+        $this->assertEquals('1', $event->number);
+        $this->assertEquals('baxterthehacker', $event->sender->getLogin());
+        $this->assertInstanceOf('Lpdigital\Github\Entity\Repository', $event->repository);
+    }
 }
