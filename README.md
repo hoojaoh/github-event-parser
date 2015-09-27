@@ -76,7 +76,7 @@ $issuesEvent->sender;      // instance of Lpdigital/Entity/User
 
 ### ForkEvent
 
-> Dispatched when someone for the repository
+> Dispatched when someone fork the repository
 
 You can retrieve the forked repository, the owner, the new repository and the "forker".
 
@@ -99,6 +99,22 @@ You can retrieve the deployment, the sender and the related repository.
 $deploymentStatusEvent->deployment;   // instance of Lpdigital/Entity/Deployment
 $deploymentStatusEvent->sender;       // instance of Lpdigital/Entity/User
 $deploymentStatusEvent->repository;   // instance of Lpdigital/Entity/Repository
+```
+
+### StatusEvent
+
+> Triggered when the status of a Git commit changes.
+  Events of this type are not visible in timelines, they are only used to trigger hooks.
+
+You can retrieve the sha, the status, the committer and the related repository. More others
+informations are available.
+
+```php
+<?php
+$statusEvent->sha;           // something like "9049f1265b7d61be4a8904a9a27120d2064dab3b"
+$statusEvent->status;        // Can be one of "success", "failure" or "error".
+$statusEvent->commiter;      // instance of Lpdigital/Entity/User
+$statusEvent->repository;    // instance of Lpdigital/Entity/Repository
 ```
 
 ## Entities
