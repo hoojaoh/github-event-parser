@@ -87,7 +87,7 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('User', $event->sender->getType());
     }
 
-    public function testPullRequestEvent()
+    public function testResolvePullRequestEvent()
     {
         $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'pull_request_event.json'), true);
         $event = $this->webhookResolver->resolve($jsonReceived);
@@ -100,4 +100,18 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('baxterthehacker', $event->sender->getLogin());
         $this->assertInstanceOf('Lpdigital\Github\Entity\Repository', $event->repository);
     }
+
+    public function testResolveStatusEvent()
+    {
+        $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'status_event.json'), true);
+        $event = $this->webhookResolver->resolve($jsonReceived);
+
+        $this->assertInstanceOf("Lpdigital\Github\EventType\StatusEvent", $event);
+
+        $this->assertEquals('baxterthehacker', $event->committer->getLogin());
+        $this->assertEquals('public-repo', $event->repository->getName());
+        $this->assertEquals('success', $event->state);
+        $this->assertEquals('9049f1265b7d61be4a8904a9a27120d2064dab3b', $event->sha);
+    }
+
 }
