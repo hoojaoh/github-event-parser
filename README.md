@@ -140,12 +140,13 @@ Each object from Github API have his PHP class.
 * Deployment
 * Issue
 * Label
+* PullRequest
+* Release
 * Repository
 * User
 
 ## ROADMAP
 
-* Add DeploymentStatus Entity
 * Add all missing events
 * Add doctrine mapping file for doctrine/dbal
 
