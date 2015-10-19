@@ -25,24 +25,24 @@ use Lpdigital\Github\Parser\WebhookResolver;
 
 class WebhookResolverTest extends \PHPUnit_Framework_TestCase
 {
-    private $webhookResolver;
+    private $resolver;
     private $jsonDataFolder;
 
     public function setUp()
     {
-        $this->webhookResolver = new WebhookResolver();
+        $this->resolver = new WebhookResolver();
         $this->jsonDataFolder = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'json-data'.DIRECTORY_SEPARATOR;
     }
 
     public function tearDown()
     {
-        $this->webhookResolver = null;
+        $this->resolver = null;
     }
 
     public function testResolveIssuesEvent()
     {
         $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'issue_event.json'), true);
-        $event = $this->webhookResolver->resolve($jsonReceived);
+        $event = $this->resolver->resolve($jsonReceived);
 
         $this->assertInstanceOf("Lpdigital\Github\EventType\IssuesEvent", $event);
 
@@ -54,7 +54,7 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
     public function testResolveIssueCommitEvent()
     {
         $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'issue_commit_event.json'), true);
-        $event = $this->webhookResolver->resolve($jsonReceived);
+        $event = $this->resolver->resolve($jsonReceived);
 
         $this->assertInstanceOf("Lpdigital\Github\EventType\IssueCommentEvent", $event);
 
@@ -66,7 +66,7 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
     public function testResolveForkEvent()
     {
         $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'fork_event.json'), true);
-        $event = $this->webhookResolver->resolve($jsonReceived);
+        $event = $this->resolver->resolve($jsonReceived);
 
         $this->assertInstanceOf("Lpdigital\Github\EventType\ForkEvent", $event);
 
@@ -78,7 +78,7 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
     public function testResolveDeploymentStatusEvent()
     {
         $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'deployment_status_event.json'), true);
-        $event = $this->webhookResolver->resolve($jsonReceived);
+        $event = $this->resolver->resolve($jsonReceived);
 
         $this->assertInstanceOf("Lpdigital\Github\EventType\DeploymentStatusEvent", $event);
 
@@ -90,7 +90,7 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
     public function testResolvePullRequestEvent()
     {
         $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'pull_request_event.json'), true);
-        $event = $this->webhookResolver->resolve($jsonReceived);
+        $event = $this->resolver->resolve($jsonReceived);
 
         $this->assertInstanceOf("Lpdigital\Github\EventType\PullRequestEvent", $event);
 
@@ -104,7 +104,7 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
     public function testResolveStatusEvent()
     {
         $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'status_event.json'), true);
-        $event = $this->webhookResolver->resolve($jsonReceived);
+        $event = $this->resolver->resolve($jsonReceived);
 
         $this->assertInstanceOf("Lpdigital\Github\EventType\StatusEvent", $event);
 
@@ -112,6 +112,18 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('public-repo', $event->repository->getName());
         $this->assertEquals('success', $event->state);
         $this->assertEquals('9049f1265b7d61be4a8904a9a27120d2064dab3b', $event->sha);
+    }
+
+    public function testResolveReleaseEvent()
+    {
+        $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'release_event.json'), true);
+        $event = $this->resolver->resolve($jsonReceived);
+
+        $this->assertInstanceOf("Lpdigital\Github\EventType\ReleaseEvent", $event);
+
+        $this->assertInstanceOf("Lpdigital\Github\Entity\Release", $event->release);
+        $this->assertEquals("published", $event->action);
+        $this->assertEquals("https://api.github.com/repos/baxterthehacker/public-repo/releases/1261438", $event->release->getUrl());
     }
 
 }
