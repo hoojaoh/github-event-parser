@@ -101,6 +101,22 @@ $deploymentStatusEvent->sender;       // instance of Lpdigital/Entity/User
 $deploymentStatusEvent->repository;   // instance of Lpdigital/Entity/Repository
 ```
 
+### PullRequestEvent
+
+> Triggered when a pull request is assigned, unassigned, labeled, unlabeled, opened, closed, reopened, or synchronized.
+
+```php
+$pullRequestEvent->pullRequest;   // instance of Lpdigital/Entity/PullRequest
+$pullRequest->action;
+/** 
+ * Can be one of “assigned”, “unassigned”, “labeled”, “unlabeled”, “opened”, “closed”, or “reopened”, or “synchronize”.
+ * If the action is “closed” and the merged key is false, the pull request was closed with unmerged commits.
+ * If the action is “closed” and the merged key is true, the pull request was merged.
+ */
+$pullRequest->number;             // the pull request number
+$pullRequest->repository;         // instance of Lpdigital/Entity/Repository
+```
+
 ### StatusEvent
 
 > Triggered when the status of a Git commit changes.
