@@ -318,4 +318,14 @@ class Comment
 
         return $this;
     }
+
+    /**
+     * Get an human readable description of Comment object: the comment.
+     *
+     * @return string the comment
+     */
+    public function __toString()
+    {
+        return $this->body;
+    }
 }
