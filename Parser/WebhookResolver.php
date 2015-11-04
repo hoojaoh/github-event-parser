@@ -46,6 +46,7 @@ class WebhookResolver
             'Lpdigital\Github\EventType\PullRequestEvent',
             'Lpdigital\Github\EventType\ReleaseEvent',
             'Lpdigital\Github\EventType\StatusEvent',
+            'Lpdigital\Github\EventType\WatchEvent',
         ];
 
         $eventTypes = [];
