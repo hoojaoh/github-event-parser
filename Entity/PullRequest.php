@@ -84,12 +84,12 @@ class PullRequest
         $this->reviewCommentUrl = $data['review_comment_url'];
         $this->reviewCommentsUrl = $data['review_comments_url'];
         $this->statusesUrl = $data['statuses_url'];
-        $this->isMerged = $data['merged'];
-        $this->isMergeable = $data['mergeable'];
-        $this->mergeableState = $data['mergeable_state'];
+        $this->isMerged = isset($data['merged']) ? $data['merged'] : null;
+        $this->isMergeable = isset($data['mergeable']) ? $data['mergeable'] : null;
+        $this->mergeableState = isset($data['mergeable_state']) ? $data['mergeable_state'] : false;
         $this->mergedBy = isset($data['merged_by']) ? User::createFromData($data['merged_by']) : null;
-        $this->commentsCount = $data['comments'];
-        $this->reviewCommentsCount = $data['review_comments'];
+        $this->commentsCount = isset($data['comments']) ? $data['comments'] : null;
+        $this->reviewCommentsCount = isset($data['review_comments']) ? $data['review_comments'] : null;
     }
 
     /**
