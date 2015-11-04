@@ -133,6 +133,18 @@ $statusEvent->commiter;      // instance of Lpdigital/Entity/User
 $statusEvent->repository;    // instance of Lpdigital/Entity/Repository
 ```
 
+### WatchEvent
+
+> The WatchEvent is related to starring a repository, not watching. See this [API blog post](https://developer.github.com/changes/2012-09-05-watcher-api/) for an explanation.
+  The event’s actor is the user who starred a repository, and the event’s repository is the repository that was starred.
+
+```php
+<?php
+$watchEvent->action;        // "started"
+$watchEvent->user           // instance of Lpdigital\Entity\User
+$watchEvent->repository     // instance of Lpdigital\Entity\Repository
+```
+
 ## Entities
 
 Each object from Github API have his PHP class.
