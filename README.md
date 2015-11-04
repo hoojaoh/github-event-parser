@@ -103,7 +103,7 @@ $deploymentStatusEvent->repository;   // instance of Lpdigital/Entity/Repository
 
 ### PullRequestEvent
 
-> Triggered when a pull request is assigned, unassigned, labeled, unlabeled, opened, closed, reopened, or synchronized.
+> Dispatched when a pull request is assigned, unassigned, labeled, unlabeled, opened, closed, reopened, or synchronized.
 
 ```php
 $pullRequestEvent->pullRequest;   // instance of Lpdigital/Entity/PullRequest
@@ -119,7 +119,7 @@ $pullRequest->repository;         // instance of Lpdigital/Entity/Repository
 
 ### StatusEvent
 
-> Triggered when the status of a Git commit changes.
+> Dispatched when the status of a Git commit changes.
   Events of this type are not visible in timelines, they are only used to trigger hooks.
 
 You can retrieve the sha, the status, the committer and the related repository. More others
@@ -143,6 +143,19 @@ $statusEvent->repository;    // instance of Lpdigital/Entity/Repository
 $watchEvent->action;        // "started"
 $watchEvent->user           // instance of Lpdigital\Entity\User
 $watchEvent->repository     // instance of Lpdigital\Entity\Repository
+```
+
+### PullRequestReviewCommentEvent
+
+> Dispatched when a comment is created on a portion of the unified diff of a pull request.
+
+```php
+<?php
+$pullRequestReviewCommentEvent->action          // "created"
+$pullRequestReviewCommentEvent->comment         // instance of Lpdigital\Entity\Comment
+$pullRequestReviewCommentEvent->pullRequest     // instance of Lpdigital\Entity\PullRequest
+$pullRequestReviewCommentEvent->repository      // instance of Lpdigital\Entity\Repository
+$pullRequestReviewCommentEvent->sender          // instance of Lpdigital\Entity\User
 ```
 
 ## Entities

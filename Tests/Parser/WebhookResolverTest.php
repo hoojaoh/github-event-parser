@@ -25,7 +25,10 @@ use Lpdigital\Github\Parser\WebhookResolver;
 
 class WebhookResolverTest extends \PHPUnit_Framework_TestCase
 {
+    /** @var $resolver \Lpdigital\Github\Parser\WebhookResolver */
     private $resolver;
+
+    /** @var  @var $jsonDataFolder string */
     private $jsonDataFolder;
 
     public function setUp()
@@ -136,6 +139,17 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf("Lpdigital\Github\Entity\User", $event->user);
 
         $this->assertEquals("started", $event->action);
+    }
+
+    public function testResolvePullRequestReviewCommentEvent()
+    {
+        $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'pull_request_review_comment_event.json'), true);
+        $event = $this->resolver->resolve($jsonReceived);
+
+        $this->assertInstanceOf("Lpdigital\Github\EventType\PullRequestReviewCommentEvent", $event);
+        $this->assertInstanceOf("Lpdigital\Github\Entity\Repository", $event->repository);
+        $this->assertInstanceOf("Lpdigital\Github\Entity\User", $event->sender);
+        $this->assertInstanceOf("Lpdigital\Github\Entity\Comment", $event->comment);
     }
 
 }
