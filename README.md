@@ -158,6 +158,17 @@ $pullRequestReviewCommentEvent->repository      // instance of Lpdigital\Entity\
 $pullRequestReviewCommentEvent->sender          // instance of Lpdigital\Entity\User
 ```
 
+### GollumEvent
+
+> Dispatched when a Wiki page is created or updated.
+
+```php
+<?php
+$gollumEvent->pages          // an array of Lpdigital\Entity\Page objects
+$gollumEvent->repository     // instance of Lpdigital\Entity\Repository
+$gollumEvent->sender         // instance of Lpdigital\Entity\User
+```
+
 ## Entities
 
 Each object from Github API have his PHP class.
@@ -165,6 +176,7 @@ Each object from Github API have his PHP class.
 * Deployment
 * Issue
 * Label
+* Page (*Wiki*)
 * PullRequest
 * Release
 * Repository
