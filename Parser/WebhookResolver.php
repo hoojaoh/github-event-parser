@@ -43,6 +43,7 @@ class WebhookResolver
             'Lpdigital\Github\EventType\IssueCommentEvent',
             'Lpdigital\Github\EventType\ForkEvent',
             'Lpdigital\Github\EventType\DeploymentStatusEvent',
+            'Lpdigital\Github\EventType\GollumEvent',
             'Lpdigital\Github\EventType\PullRequestEvent',
             'Lpdigital\Github\EventType\PullRequestReviewCommentEvent',
             'Lpdigital\Github\EventType\ReleaseEvent',
@@ -64,7 +65,7 @@ class WebhookResolver
                 return 0;
             }
 
-                return ($a['priority'] < $b['priority']) ? 1 : -1;
+            return ($a['priority'] < $b['priority']) ? 1 : -1;
         });
 
         return $eventTypes;

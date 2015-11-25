@@ -28,7 +28,7 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
     /** @var $resolver \Lpdigital\Github\Parser\WebhookResolver */
     private $resolver;
 
-    /** @var  @var $jsonDataFolder string */
+    /** @var $jsonDataFolder string */
     private $jsonDataFolder;
 
     public function setUp()
@@ -152,4 +152,21 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf("Lpdigital\Github\Entity\Comment", $event->comment);
     }
 
+    public function testResolveGollumEvent()
+    {
+        $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'gollum_event.json'), true);
+        $event = $this->resolver->resolve($jsonReceived);
+
+        $this->assertInstanceOf("Lpdigital\Github\EventType\GollumEvent", $event);
+        $this->assertInstanceOf("Lpdigital\Github\Entity\Repository", $event->repository);
+        $this->assertInstanceOf("Lpdigital\Github\Entity\User", $event->sender);
+        $this->assertInternalType('array', $event->pages);
+        $this->assertCount(2, $event->pages);
+
+        $this->assertInstanceOf("Lpdigital\Github\Entity\Page", current($event->pages));
+        $this->assertInstanceOf("Lpdigital\Github\Entity\Page", next($event->pages));
+
+        $this->assertEquals("Home", $event->pages[0]->getTitle());
+        $this->assertEquals("Home2", $event->pages[1]->getTitle());
+    }
 }
