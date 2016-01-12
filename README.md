@@ -60,7 +60,7 @@ $issueCommentEvent->comment;  // instance of Lpdigital/Entity/Comment
 
 ### IssuesEvent
 
-> Dispatched Triggered when an issue is assigned, unassigned, labeled, unlabeled, opened, closed, or reopened.
+> Dispatched when an issue is assigned, unassigned, labeled, unlabeled, opened, closed, or reopened.
 
 You can retrieve the action, the repository and the sender from this event. When available, you can also get assignee and label.
 
@@ -108,7 +108,7 @@ $deploymentStatusEvent->repository;   // instance of Lpdigital/Entity/Repository
 ```php
 $pullRequestEvent->pullRequest;   // instance of Lpdigital/Entity/PullRequest
 $pullRequest->action;
-/** 
+/**
  * Can be one of “assigned”, “unassigned”, “labeled”, “unlabeled”, “opened”, “closed”, or “reopened”, or “synchronize”.
  * If the action is “closed” and the merged key is false, the pull request was closed with unmerged commits.
  * If the action is “closed” and the merged key is true, the pull request was merged.
