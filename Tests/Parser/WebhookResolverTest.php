@@ -169,4 +169,12 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("Home", $event->pages[0]->getTitle());
         $this->assertEquals("Home2", $event->pages[1]->getTitle());
     }
+
+    public function testPushEvent()
+    {
+        $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'push_event.json'), true);
+        $event = $this->resolver->resolve($jsonReceived);
+
+        $this->assertInstanceOf("Lpdigital\Github\EventType\PushEvent", $event);
+    }
 }

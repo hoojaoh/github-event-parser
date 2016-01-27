@@ -117,6 +117,18 @@ $pullRequest->number;             // the pull request number
 $pullRequest->repository;         // instance of Lpdigital/Entity/Repository
 ```
 
+### PushEvent
+
+> Dispatched when a repository branch is pushed to. In addition to branch pushes, webhook push events are also triggered when repository tags are pushed.
+
+```php
+$pushEvent->ref       // the full Git ref that was pushed ex: refs/heads/master
+$pushEvent->head      // the SHA of the most recent commit on ref after the push
+$pushEvent->before    // the SHA of the most recent commit on ref before the push
+$pushEvent->size      // the number of commits in the push
+$pushEvent->commits   // an array of objects that describe the pushed commits 
+```
+
 ### StatusEvent
 
 > Dispatched when the status of a Git commit changes.

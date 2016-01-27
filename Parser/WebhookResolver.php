@@ -46,6 +46,7 @@ class WebhookResolver
             'Lpdigital\Github\EventType\GollumEvent',
             'Lpdigital\Github\EventType\PullRequestEvent',
             'Lpdigital\Github\EventType\PullRequestReviewCommentEvent',
+            'Lpdigital\Github\EventType\PushEvent',
             'Lpdigital\Github\EventType\ReleaseEvent',
             'Lpdigital\Github\EventType\StatusEvent',
             'Lpdigital\Github\EventType\WatchEvent',
