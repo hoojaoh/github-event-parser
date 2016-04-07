@@ -55,6 +55,7 @@ class PullRequest
     private $additions;
     private $deletions;
     private $changedFiles;
+    private $commitSha;
 
     public static function createFromData(array $data)
     {
@@ -90,6 +91,7 @@ class PullRequest
         $this->mergedBy = isset($data['merged_by']) ? User::createFromData($data['merged_by']) : null;
         $this->commentsCount = isset($data['comments']) ? $data['comments'] : null;
         $this->reviewCommentsCount = isset($data['review_comments']) ? $data['review_comments'] : null;
+        $this->commitSha = $data['head']['sha'];
     }
 
     /**
@@ -858,5 +860,15 @@ class PullRequest
         $this->changedFiles = $changedFiles;
 
         return $this;
+    }
+    
+    /**
+     * Gets the value of commit.
+     *
+     * @return mixed
+     */
+    public function getCommitSha()
+    {
+        return $this->commitSha;
     }
 }
