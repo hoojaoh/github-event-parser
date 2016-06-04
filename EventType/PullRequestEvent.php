@@ -25,7 +25,7 @@ use Lpdigital\Github\Entity\PullRequest;
 use Lpdigital\Github\Entity\Repository;
 use Lpdigital\Github\Entity\User;
 
-class PullRequestEvent extends AbstractEventType
+class PullRequestEvent extends AbstractEventType implements ActionableEventInterface
 {
     public $action;
     public $number;
@@ -33,6 +33,11 @@ class PullRequestEvent extends AbstractEventType
     public $repository;
     public $sender;
 
+    public static function action()
+    {
+        return $this->action;
+    }
+    
     public static function name()
     {
         return 'PullRequestEvent';
