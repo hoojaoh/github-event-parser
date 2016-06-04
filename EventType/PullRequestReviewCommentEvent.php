@@ -34,7 +34,7 @@ class PullRequestReviewCommentEvent extends AbstractEventType implements Actiona
     public $repository;
     public $sender;
 
-    public static function action()
+    public function getAction()
     {
         return $this->action;
     }

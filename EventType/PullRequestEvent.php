@@ -33,7 +33,7 @@ class PullRequestEvent extends AbstractEventType implements ActionableEventInter
     public $repository;
     public $sender;
 
-    public static function action()
+    public function getAction()
     {
         return $this->action;
     }

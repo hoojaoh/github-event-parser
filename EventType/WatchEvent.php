@@ -30,7 +30,7 @@ class WatchEvent extends AbstractEventType implements ActionableEventInterface
     public $repository;
     public $user;
 
-    public static function action()
+    public function getAction()
     {
         return $this->action;
     }

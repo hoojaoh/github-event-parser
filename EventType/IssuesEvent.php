@@ -35,7 +35,7 @@ class IssuesEvent extends AbstractEventType implements ActionableEventInterface
     public $repository;
     public $sender;
 
-    public static function action()
+    public function getAction()
     {
         return $this->action;
     }

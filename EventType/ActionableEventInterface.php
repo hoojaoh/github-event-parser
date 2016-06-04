@@ -30,5 +30,5 @@ interface ActionableEventInterface
     /**
      * @return string action name
      */
-    public static function action();
+    public function getAction();
 }

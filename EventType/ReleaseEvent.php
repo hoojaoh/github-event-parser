@@ -28,7 +28,7 @@ class ReleaseEvent extends AbstractEventType implements ActionableEventInterface
     public $action;
     public $release;
 
-    public static function action()
+    public function getAction()
     {
         return $this->action;
     }

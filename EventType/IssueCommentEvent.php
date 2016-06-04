@@ -31,7 +31,7 @@ class IssueCommentEvent extends AbstractEventType implements ActionableEventInte
     public $user;
     public $comment;
 
-    public static function action()
+    public function getAction()
     {
         return $this->action;
     }
