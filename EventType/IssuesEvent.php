@@ -37,7 +37,7 @@ class IssuesEvent extends AbstractEventType
 
     public static function name()
     {
-        return 'IssueEvent';
+        return 'IssuesEvent';
     }
 
     public static function fields()
