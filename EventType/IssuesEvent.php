@@ -26,7 +26,7 @@ use Lpdigital\Github\Entity\Label;
 use Lpdigital\Github\Entity\Repository;
 use Lpdigital\Github\Entity\User;
 
-class IssuesEvent extends AbstractEventType
+class IssuesEvent extends AbstractEventType implements ActionableEventInterface
 {
     public $action;
     public $assignee;
@@ -35,6 +35,11 @@ class IssuesEvent extends AbstractEventType
     public $repository;
     public $sender;
 
+    public function getAction()
+    {
+        return $this->action;
+    }
+    
     public static function name()
     {
         return 'IssuesEvent';

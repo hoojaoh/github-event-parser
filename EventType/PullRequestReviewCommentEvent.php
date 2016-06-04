@@ -26,7 +26,7 @@ use Lpdigital\Github\Entity\PullRequest;
 use Lpdigital\Github\Entity\Repository;
 use Lpdigital\Github\Entity\User;
 
-class PullRequestReviewCommentEvent extends AbstractEventType
+class PullRequestReviewCommentEvent extends AbstractEventType implements ActionableEventInterface
 {
     public $action;
     public $comment;
@@ -34,6 +34,11 @@ class PullRequestReviewCommentEvent extends AbstractEventType
     public $repository;
     public $sender;
 
+    public function getAction()
+    {
+        return $this->action;
+    }
+    
     public static function name()
     {
         return 'PullRequestReviewCommentEvent';
