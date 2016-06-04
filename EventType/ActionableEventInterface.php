@@ -21,38 +21,14 @@
 
 namespace Lpdigital\Github\EventType;
 
-use Lpdigital\Github\Entity\Comment;
-use Lpdigital\Github\Entity\Issue;
-
-class IssueCommentEvent extends AbstractEventType implements ActionableEventInterface
+/**
+ * Made the event actionable
+ * Made the system aware that this event have an action
+ */
+interface ActionableEventInterface
 {
-    public $action;
-    public $issue;
-    public $user;
-    public $comment;
-
-    public static function action()
-    {
-        return $this->action;
-    }
-    
-    public static function name()
-    {
-        return 'IssueCommentEvent';
-    }
-
-    public static function fields()
-    {
-        return ['action', 'issue', 'comment'];
-    }
-
-    public function createFromData($data)
-    {
-        $this->action = $data['action'];
-        $this->issue = Issue::createFromData($data['issue']);
-        $this->comment = Comment::createFromData($data['comment']);
-        $this->user = $this->comment->getUser();
-
-        return $this;
-    }
+    /**
+     * @return string action name
+     */
+    public static function action();
 }
