@@ -51,7 +51,6 @@ class Release
     public function __construct($data)
     {
         $this->url = $data['url'];
-
     }
 
     /**
