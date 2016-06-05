@@ -67,8 +67,10 @@ class PullRequest
         $this->url = $data['url'];
         $this->id = $data['id'];
         $this->htmlUrl = $data['html_url'];
-        $this->diffUrl = $data['diff_url'];
-        $this->issueUrl = $data['issue_url'];
+        $diffUrl = isset($data['diff_url']) ? $data['diff_url'] : null;
+        $diffUrlFromPR = isset($data['pull_request']['diff_url']) ? $data['pull_request']['diff_url'] : null;
+        $this->diffUrl = !is_null($diffUrl) ? $diffUrl : $diffUrlFromPR;
+        $this->issueUrl = isset($data['issue_url']) ? $data['issue_url'] : null;
         $this->number = $data['number'];
         $this->state = $data['state'];
         $this->isLocked = $data['locked'];
@@ -77,21 +79,21 @@ class PullRequest
         $this->body = $data['body'];
         $this->createdAt = $data['created_at'];
         $this->closedAt = $data['closed_at'];
-        $this->mergedAt = $data['merged_at'];
-        $this->mergeCommitSha = $data['merge_commit_sha'];
+        $this->mergedAt = isset($data['merged_at']) ? $data['merged_at'] : null;
+        $this->mergeCommitSha = isset($data['merge_commit_sha']) ? $data['merge_commit_sha'] : null;
         $this->assignee = isset($data['assignee']) ? User::createFromData($data['assignee']) : null;
         $this->milestone = $data['milestone'];
-        $this->commitsUrl = $data['commits_url'];
-        $this->reviewCommentUrl = $data['review_comment_url'];
-        $this->reviewCommentsUrl = $data['review_comments_url'];
-        $this->statusesUrl = $data['statuses_url'];
+        $this->commitsUrl = isset($data['commits_url']) ? $data['commits_url'] : null;
+        $this->reviewCommentUrl = isset($data['review_comment_url']) ? $data['review_comment_url'] : null;
+        $this->reviewCommentsUrl = isset($data['review_comments_url']) ? $data['review_comments_url'] : null;
+        $this->statusesUrl = isset($data['statuses_url']) ? $data['statuses_url'] : null;
         $this->isMerged = isset($data['merged']) ? $data['merged'] : null;
         $this->isMergeable = isset($data['mergeable']) ? $data['mergeable'] : null;
         $this->mergeableState = isset($data['mergeable_state']) ? $data['mergeable_state'] : false;
         $this->mergedBy = isset($data['merged_by']) ? User::createFromData($data['merged_by']) : null;
         $this->commentsCount = isset($data['comments']) ? $data['comments'] : null;
         $this->reviewCommentsCount = isset($data['review_comments']) ? $data['review_comments'] : null;
-        $this->commitSha = $data['head']['sha'];
+        $this->commitSha = isset($data['head']['sha']) ? $data['head']['sha'] : null;
     }
 
     /**
