@@ -23,7 +23,7 @@ namespace Lpdigital\Github\EventType;
 
 /**
  * Made the event actionable
- * Made the system aware that this event have an action
+ * Made the system aware that this event have an action.
  */
 interface ActionableEventInterface
 {

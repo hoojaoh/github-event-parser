@@ -38,11 +38,11 @@ class Page
     public function __construct($data)
     {
         $this->pageName = $data['page_name'];
-        $this->title    = $data['title'];
-        $this->summary  = $data['summary'];
-        $this->action   = $data['action'];
-        $this->sha      = $data['sha'];
-        $this->htmlUrl  = $data['html_url'];
+        $this->title = $data['title'];
+        $this->summary = $data['summary'];
+        $this->action = $data['action'];
+        $this->sha = $data['sha'];
+        $this->htmlUrl = $data['html_url'];
     }
 
     /**
@@ -55,6 +55,7 @@ class Page
 
     /**
      * @param string $pageName
+     *
      * @return Page
      */
     public function setPageName($pageName)
@@ -74,6 +75,7 @@ class Page
 
     /**
      * @param string $title
+     *
      * @return Page
      */
     public function setTitle($title)
@@ -93,6 +95,7 @@ class Page
 
     /**
      * @param string $summary
+     *
      * @return Page
      */
     public function setSummary($summary)
@@ -103,7 +106,8 @@ class Page
     }
 
     /**
-     * Action value can be one of ['created', 'edited']
+     * Action value can be one of ['created', 'edited'].
+     *
      * @return string
      */
     public function getAction()
@@ -113,6 +117,7 @@ class Page
 
     /**
      * @param string $action
+     *
      * @return Page
      */
     public function setAction($action)
@@ -132,6 +137,7 @@ class Page
 
     /**
      * @param string $sha
+     *
      * @return Page
      */
     public function setSha($sha)
@@ -151,6 +157,7 @@ class Page
 
     /**
      * @param string $htmlUrl
+     *
      * @return Page
      */
     public function setHtmlUrl($htmlUrl)

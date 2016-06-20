@@ -863,7 +863,7 @@ class PullRequest
 
         return $this;
     }
-    
+
     /**
      * Gets the value of commit.
      *
