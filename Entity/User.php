@@ -46,6 +46,7 @@ class User
         if (isset($data['login'], $data['id'])) {
             return new static($data);
         }
+
         return $data['name'];
     }
 

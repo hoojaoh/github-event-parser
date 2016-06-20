@@ -125,8 +125,8 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf("Lpdigital\Github\EventType\ReleaseEvent", $event);
 
         $this->assertInstanceOf("Lpdigital\Github\Entity\Release", $event->release);
-        $this->assertEquals("published", $event->action);
-        $this->assertEquals("https://api.github.com/repos/baxterthehacker/public-repo/releases/1261438", $event->release->getUrl());
+        $this->assertEquals('published', $event->action);
+        $this->assertEquals('https://api.github.com/repos/baxterthehacker/public-repo/releases/1261438', $event->release->getUrl());
     }
 
     public function testResolveWatchEvent()
@@ -138,7 +138,7 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf("Lpdigital\Github\Entity\Repository", $event->repository);
         $this->assertInstanceOf("Lpdigital\Github\Entity\User", $event->user);
 
-        $this->assertEquals("started", $event->action);
+        $this->assertEquals('started', $event->action);
     }
 
     public function testResolvePullRequestReviewCommentEvent()
@@ -166,8 +166,8 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf("Lpdigital\Github\Entity\Page", current($event->pages));
         $this->assertInstanceOf("Lpdigital\Github\Entity\Page", next($event->pages));
 
-        $this->assertEquals("Home", $event->pages[0]->getTitle());
-        $this->assertEquals("Home2", $event->pages[1]->getTitle());
+        $this->assertEquals('Home', $event->pages[0]->getTitle());
+        $this->assertEquals('Home2', $event->pages[1]->getTitle());
     }
 
     public function testPushEvent()

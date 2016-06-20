@@ -21,6 +21,7 @@
 
 namespace Lpdigital\Github\EventType;
 
+use Lpdigital\Github\Entity\Repository;
 use Lpdigital\Github\Entity\Comment;
 use Lpdigital\Github\Entity\Issue;
 
@@ -30,12 +31,18 @@ class IssueCommentEvent extends AbstractEventType implements ActionableEventInte
     public $issue;
     public $user;
     public $comment;
+    public $repository;
 
     public function getAction()
     {
         return $this->action;
     }
-    
+
+    public function getRepository()
+    {
+        return $this->repository;
+    }
+
     public static function name()
     {
         return 'IssueCommentEvent';
@@ -52,6 +59,7 @@ class IssueCommentEvent extends AbstractEventType implements ActionableEventInte
         $this->issue = Issue::createFromData($data['issue']);
         $this->comment = Comment::createFromData($data['comment']);
         $this->user = $this->comment->getUser();
+        $this->repository = Repository::createFromData($data['repository']);
 
         return $this;
     }
