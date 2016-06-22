@@ -78,6 +78,7 @@ class PullRequest
         $this->user = User::createFromData($data['user']);
         $this->body = $data['body'];
         $this->createdAt = $data['created_at'];
+        $this->updatedAt = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->closedAt = $data['closed_at'];
         $this->mergedAt = isset($data['merged_at']) ? $data['merged_at'] : null;
         $this->mergeCommitSha = isset($data['merge_commit_sha']) ? $data['merge_commit_sha'] : null;
