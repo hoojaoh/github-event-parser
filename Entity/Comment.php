@@ -130,17 +130,27 @@ class Comment
     /**
      * Gets the value of user.
      *
-     * @return mixed
+     * @return Lpdigital\Github\Entity\User
      */
     public function getUser()
     {
         return $this->user;
     }
 
+     /**
+      * Gets the author of comment.
+      * 
+      * @return string
+      */
+     public function getUserLogin()
+     {
+         return $this->user->getLogin();
+     }
+
     /**
      * Sets the value of user.
      *
-     * @param mixed $user the user
+     * @param Lpdigital\Github\Entity\User $user the user
      *
      * @return self
      */
