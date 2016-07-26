@@ -268,11 +268,11 @@ class PullRequest
     /**
      * Gets the value of locked.
      *
-     * @return mixed
+     * @return bool
      */
     public function isLocked()
     {
-        return $this->islocked;
+        return (bool) $this->islocked;
     }
 
     /**
@@ -628,11 +628,11 @@ class PullRequest
     /**
      * Gets the value of merged.
      *
-     * @return mixed
+     * @return bool
      */
     public function isMerged()
     {
-        return $this->isMerged;
+        return (bool) $this->isMerged;
     }
 
     /**
@@ -652,11 +652,11 @@ class PullRequest
     /**
      * Gets the value of mergeable.
      *
-     * @return mixed
+     * @return bool
      */
     public function isMergeable()
     {
-        return $this->isMergeable;
+        return (bool) $this->isMergeable;
     }
 
     /**
@@ -873,5 +873,14 @@ class PullRequest
     public function getCommitSha()
     {
         return $this->commitSha;
+    }
+    
+    /**
+     * Some helpers
+     */
+
+    public function isClosed()
+    {
+        return 'closed' === $pullRequest->getState();
     }
 }
