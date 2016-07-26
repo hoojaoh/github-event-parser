@@ -19,7 +19,7 @@
  * along with Github Parser. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Lpdigital\Github\Parser\Tests;
+namespace Tests\Parser;
 
 use Lpdigital\Github\Parser\WebhookResolver;
 

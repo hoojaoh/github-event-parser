@@ -874,11 +874,10 @@ class PullRequest
     {
         return $this->commitSha;
     }
-    
-    /**
-     * Some helpers
-     */
 
+    /**
+     * Some helpers.
+     */
     public function isClosed()
     {
         return 'closed' === $pullRequest->getState();
