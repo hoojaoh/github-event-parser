@@ -876,6 +876,37 @@ class PullRequest
     }
 
     /**
+     * Get the commits.
+     *
+     * @return Commit[]
+     */
+    public function getCommits()
+    {
+        static $commits;
+        if (null === $commits) {
+            $userAgent = ini_get('user_agent');
+
+            if (empty($userAgent)) {
+                $userAgent = 'Lp-digital GitHub event parser client';
+            }
+            ini_set('user_agent', $userAgent);
+
+            $jsonResponse = file_get_contents($this->getCommitsUrl());
+            $response = json_decode($jsonResponse, true);
+
+            foreach ($response as $commitArray) {
+                $commit = Commit::createFromData($commitArray['commit'])
+                    ->setSha($commitArray['sha'])
+                ;
+
+                $commits[] = $commit;
+            }
+
+            return $commits;
+        }
+    }
+
+    /**
      * Some helpers.
      */
     public function isClosed()
