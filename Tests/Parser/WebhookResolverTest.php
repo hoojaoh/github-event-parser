@@ -177,4 +177,20 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf("Lpdigital\Github\EventType\PushEvent", $event);
     }
+
+    public function testResolvePullRequestEventCommitsOk()
+    {
+        $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'pull_request_event.json'), true);
+        $event = $this->resolver->resolve($jsonReceived);
+
+        $this->assertInstanceOf("Lpdigital\Github\EventType\PullRequestEvent", $event);
+        $pullRequest = $event->pullRequest;
+
+        $this->assertInstanceOf("Lpdigital\Github\Entity\PullRequest", $pullRequest);
+
+        $commits = $pullRequest->getCommits();
+        $this->assertTrue(is_array($commits));
+        $commit = $commits[0];
+        $this->assertInstanceOf("Lpdigital\Github\Entity\Commit", $commit);
+    }
 }

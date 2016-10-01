@@ -185,6 +185,7 @@ $gollumEvent->sender         // instance of Lpdigital\Entity\User
 
 Each object from Github API have his PHP class.
 * Comment
+* Commit (and CommitUser)
 * Deployment
 * Issue
 * Label
