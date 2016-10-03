@@ -32,7 +32,7 @@ include_once('./vendor/autoload.php');
 use Lpdigital\Github\Parser\WebhookResolver;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-     $decodedJson = json_decode($_POST, true);
+     $decodedJson = json_decode(file_get_contents('php://input'), true);
      $resolver    = new WebhookResolver();
      $event       = $resolver->resolve($decodedJson); // ex: an instance of `IssueCommentEvent`
      echo($event::name()); // IssueCommentEvent
