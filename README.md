@@ -31,7 +31,7 @@ For instance, let's consider you have a simple `github-hook.php` file and have i
 include_once('./vendor/autoload.php');
 use Lpdigital\Github\Parser\WebhookResolver;
 
-if (isset($_POST)) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      $decodedJson = json_decode($_POST, true);
      $resolver    = new WebhookResolver();
      $event       = $resolver->resolve($decodedJson); // ex: an instance of `IssueCommentEvent`
