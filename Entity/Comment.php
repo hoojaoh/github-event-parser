@@ -139,7 +139,7 @@ class Comment
 
      /**
       * Gets the author of comment.
-      * 
+      *
       * @return string
       */
      public function getUserLogin()

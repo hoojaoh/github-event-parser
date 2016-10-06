@@ -180,6 +180,8 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
 
     public function testResolvePullRequestEventCommitsOk()
     {
+        ini_restore('user_agent');
+        ini_set('user_agent', 'GitHub event parser user agent');
         $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'pull_request_event.json'), true);
         $event = $this->resolver->resolve($jsonReceived);
 
@@ -192,5 +194,16 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(is_array($commits));
         $commit = $commits[0];
         $this->assertInstanceOf("Lpdigital\Github\Entity\Commit", $commit);
+    }
+
+    public function testResolvePullRequestEventCommitThrowsException()
+    {
+        $this->setExpectedException('Lpdigital\Github\Exception\UserAgentNotFoundException');
+        ini_restore('user_agent');
+        ini_set('user_agent', '');
+
+        $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'pull_request_event.json'), true);
+        $event = $this->resolver->resolve($jsonReceived);
+        $commits = $event->pullRequest->getCommits();
     }
 }

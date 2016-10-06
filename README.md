@@ -21,6 +21,23 @@ A lot of usages are available since you can listen all events:
 $ composer require "lp-digital/github-event-parser"
 ```
 
+## PHP requirements
+
+The library may access to GitHub API to retrieve additional information.
+Your PHP configuration may have `allow_url_fopen` and a valid `user_agent` enabled, or
+some informations won't be retrieved.
+
+You can use ``InvalidPhpConfigurationException`` to catch the exception:
+
+```php
+<?php
+try {
+    $commits = $pullRequest->getCommits(); // use the GitHub API when called.
+}catch(\Lpdigital\Github\Exception\InvalidPhpConfigurationException $e){
+    // ...
+}
+```
+
 ## How to resolve a json response from Github ?
 
 Once your webhook is set up, you should receive POST responses from github each time an event is dispatched by the platform.

@@ -28,4 +28,7 @@
             </exclude>
         </whitelist>
     </filter>
+    <php>
+        <ini name="allow_url_fopen" value="0" />
+    </php>
 </phpunit>
