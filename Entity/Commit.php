@@ -21,13 +21,10 @@
 
 namespace Lpdigital\Github\Entity;
 
-use \DateTime;
-
 /**
  * Partial representation of Commit GitHub API.
- * 
+ *
  * @doc https://developer.github.com/v3/git/commits/
- * 
  */
 class Commit
 {
@@ -87,51 +84,5 @@ class Commit
     public function getTree()
     {
         return $this->tree;
-    }
-}
-
-/**
- * User from a commit point of view.
- */
-class CommitUser
-{
-    private $date;
-    private $name;
-    private $email;
-
-    public static function createFromData($data)
-    {
-        return new static($data);
-    }
-
-    public function __construct($data)
-    {
-        $this->date = new DateTime($data['date']);
-        $this->name = $data['name'];
-        $this->email = $data['email'];
-    }
-
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /* Get an human readable description of CommitUser object.
-     *
-     * @return string the commit author/committer
-     */
-    public function __toString()
-    {
-        return $this->name.' ('.$this->email.')';
     }
 }

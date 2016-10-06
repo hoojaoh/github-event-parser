@@ -21,6 +21,8 @@
 
 namespace Lpdigital\Github\Entity;
 
+use Lpdigital\Github\Exception\UserAgentNotFoundException;
+
 class PullRequest
 {
     private $url;
@@ -882,28 +884,22 @@ class PullRequest
      */
     public function getCommits()
     {
-        static $commits;
-        if (null === $commits) {
-            $userAgent = ini_get('user_agent');
-
-            if (empty($userAgent)) {
-                $userAgent = 'Lp-digital GitHub event parser client';
-            }
-            ini_set('user_agent', $userAgent);
-
-            $jsonResponse = file_get_contents($this->getCommitsUrl());
-            $response = json_decode($jsonResponse, true);
-
-            foreach ($response as $commitArray) {
-                $commit = Commit::createFromData($commitArray['commit'])
-                    ->setSha($commitArray['sha'])
-                ;
-
-                $commits[] = $commit;
-            }
-
-            return $commits;
+        if ('' === ini_get('user_agent')) {
+            throw new UserAgentNotFoundException();
         }
+
+        $jsonResponse = file_get_contents($this->getCommitsUrl());
+        $response = json_decode($jsonResponse, true);
+
+        foreach ($response as $commitArray) {
+            $commit = Commit::createFromData($commitArray['commit'])
+                ->setSha($commitArray['sha'])
+            ;
+
+            $commits[] = $commit;
+        }
+
+        return $commits;
     }
 
     /**
