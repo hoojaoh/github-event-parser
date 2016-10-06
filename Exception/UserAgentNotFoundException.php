@@ -21,9 +21,7 @@
 
 namespace Lpdigital\Github\Exception;
 
-use Exception;
-
-class UserAgentNotFoundException extends Exception
+class UserAgentNotFoundException extends InvalidPhpConfigurationException
 {
     public function __construct()
     {

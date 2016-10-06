@@ -21,14 +21,8 @@
 
 namespace Lpdigital\Github\Exception;
 
-class AllowUrlFileOpenException extends InvalidPhpConfigurationException
+use Exception;
+
+abstract class InvalidPhpConfigurationException extends Exception
 {
-    public function __construct()
-    {
-        parent::__construct(
-            'You need to set "allow_url_fopen" option in PHP configuration.',
-            0,
-            null
-        );
-    }
 }
