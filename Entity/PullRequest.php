@@ -22,6 +22,7 @@
 namespace Lpdigital\Github\Entity;
 
 use Lpdigital\Github\Exception\UserAgentNotFoundException;
+use Lpdigital\Github\Exception\AllowUrlFileOpenException;
 
 class PullRequest
 {
@@ -886,6 +887,10 @@ class PullRequest
     {
         if ('' === ini_get('user_agent')) {
             throw new UserAgentNotFoundException();
+        }
+
+        if (!ini_get('allow_url_fopen')) {
+            throw new AllowUrlFileOpenException();
         }
 
         $jsonResponse = file_get_contents($this->getCommitsUrl());
