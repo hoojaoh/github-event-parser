@@ -33,7 +33,7 @@ You can use ``InvalidPhpConfigurationException`` to catch the exception:
 <?php
 try {
     $commits = $pullRequest->getCommits(); // use the GitHub API when called.
-}catch(\Lpdigital\Github\Exception\InvalidPhpConfigurationException $e){
+} catch(\Lpdigital\Github\Exception\InvalidPhpConfigurationException $e) {
     // ...
 }
 ```
