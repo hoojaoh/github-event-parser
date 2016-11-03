@@ -100,8 +100,8 @@ class PullRequest
         $this->commentsCount = isset($data['comments']) ? $data['comments'] : null;
         $this->reviewCommentsCount = isset($data['review_comments']) ? $data['review_comments'] : null;
         $this->commitSha = isset($data['head']['sha']) ? $data['head']['sha'] : null;
-        $this->base = $data['base'];
-        $this->head = $data['head'];
+        $this->base = isset($data['base']) ? $data['base'] : null;
+        $this->head = isset($data['head']) ? $data['head'] : null;
     }
 
     /**
