@@ -59,6 +59,8 @@ class PullRequest
     private $deletions;
     private $changedFiles;
     private $commitSha;
+    private $base;
+    private $head;
 
     public static function createFromData(array $data)
     {
@@ -98,6 +100,8 @@ class PullRequest
         $this->commentsCount = isset($data['comments']) ? $data['comments'] : null;
         $this->reviewCommentsCount = isset($data['review_comments']) ? $data['review_comments'] : null;
         $this->commitSha = isset($data['head']['sha']) ? $data['head']['sha'] : null;
+        $this->base = $data['base'];
+        $this->head = $data['head'];
     }
 
     /**
@@ -913,5 +917,25 @@ class PullRequest
     public function isClosed()
     {
         return 'closed' === $this->state;
+    }
+
+    /*
+     * Get the HEAD information.
+     *
+     * @return array
+     */
+    public function getHead()
+    {
+        return $this->head;
+    }
+
+    /**
+     * Get the BASE information.
+     *
+     * @return array
+     */
+    public function getBase()
+    {
+        return $this->base;
     }
 }
