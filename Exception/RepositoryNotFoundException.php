@@ -19,41 +19,16 @@
  * along with Github Parser. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Lpdigital\Github\EventType;
+namespace Lpdigital\Github\Exception;
 
-interface GithubEventInterface
+use Exception;
+
+class RepositoryNotFoundException extends Exception
 {
-    /**
-     * @return array array of fields that need to be present to define the event
-     */
-    public static function fields();
+    public function __construct($errorMessage)
+    {
+        $exceptionMessage = sprintf("A repository can't be extracted from data: %s", $errorMessage);
 
-    /**
-     * @return string name event
-     */
-    public static function name();
-
-    /**
-     * @param array data array to be set
-     *
-     * @return bool validation rule
-     */
-    public static function isValid($data);
-
-    /**
-     * @param $data
-     *
-     * @return GithubEventInterface
-     */
-    public function createFromData($data);
-
-    /**
-     * @return array data of the event
-     */
-    public function payload();
-
-    /**
-     * @return \Lpdigital\Github\Entity\Repository
-     */
-    public function repository();
+        parent::__construct($exceptionMessage, 0, null);
+    }
 }
