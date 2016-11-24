@@ -32,17 +32,11 @@ class IssuesEvent extends AbstractEventType implements ActionableEventInterface
     public $assignee;
     public $issue;
     public $label;
-    public $repository;
     public $sender;
 
     public function getAction()
     {
         return $this->action;
-    }
-
-    public function getRepository()
-    {
-        return $this->repository;
     }
 
     public static function name()

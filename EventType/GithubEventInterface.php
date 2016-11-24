@@ -50,10 +50,10 @@ interface GithubEventInterface
     /**
      * @return array data of the event
      */
-    public function payload();
+    public function getPayload();
 
     /**
      * @return \Lpdigital\Github\Entity\Repository
      */
-    public function repository();
+    public function getRepository();
 }

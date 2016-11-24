@@ -22,7 +22,6 @@
 namespace Lpdigital\Github\EventType;
 
 use Lpdigital\Github\Entity\User;
-use Lpdigital\Github\Entity\Repository;
 
 class PushEvent extends AbstractEventType
 {
@@ -32,7 +31,6 @@ class PushEvent extends AbstractEventType
     public $head;
     public $pusher;
     public $ref;
-    public $repository;
     public $sender;
     public $size;
 
@@ -56,7 +54,6 @@ class PushEvent extends AbstractEventType
         $this->head = $data['head'];
         $this->pusher = $data['pusher']['name'];
         $this->ref = $data['ref'];
-        $this->repository = Repository::createFromData($data['repository']);
         $this->sender = User::createFromData($data['sender']);
         $this->size = $data['size'];
 

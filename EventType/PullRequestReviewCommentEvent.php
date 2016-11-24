@@ -23,7 +23,6 @@ namespace Lpdigital\Github\EventType;
 
 use Lpdigital\Github\Entity\Comment;
 use Lpdigital\Github\Entity\PullRequest;
-use Lpdigital\Github\Entity\Repository;
 use Lpdigital\Github\Entity\User;
 
 class PullRequestReviewCommentEvent extends AbstractEventType implements ActionableEventInterface
@@ -31,17 +30,11 @@ class PullRequestReviewCommentEvent extends AbstractEventType implements Actiona
     public $action;
     public $comment;
     public $pullRequest;
-    public $repository;
     public $sender;
 
     public function getAction()
     {
         return $this->action;
-    }
-
-    public function getRepository()
-    {
-        return $this->repository;
     }
 
     public static function name()
@@ -72,7 +65,6 @@ class PullRequestReviewCommentEvent extends AbstractEventType implements Actiona
         $this->action = $data['action'];
         $this->comment = Comment::createFromData($data['comment']);
         $this->pullRequest = PullRequest::createFromData($data['pull_request']);
-        $this->repository = Repository::createFromData($data['repository']);
         $this->sender = User::createFromData($data['comment']['user']);
 
         return $this;

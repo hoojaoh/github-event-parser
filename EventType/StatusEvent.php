@@ -22,14 +22,12 @@
 namespace Lpdigital\Github\EventType;
 
 use Lpdigital\Github\Entity\User;
-use Lpdigital\Github\Entity\Repository;
 
 class StatusEvent extends AbstractEventType
 {
     public $branches;
     public $committer;
     public $description;
-    public $repository;
     public $sha;
     public $state;
     public $targetUrl;
@@ -51,7 +49,6 @@ class StatusEvent extends AbstractEventType
         $this->branches = $data['branches'];
         $this->committer = User::createFromData($data['commit']['committer']);
         $this->description = $data['description'];
-        $this->repository = Repository::createFromData($data['repository']);
         $this->sha = $data['sha'];
         $this->state = $data['state'];
         $this->targetUrl = $data['target_url'];

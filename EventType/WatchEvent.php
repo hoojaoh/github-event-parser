@@ -22,22 +22,15 @@
 namespace Lpdigital\Github\EventType;
 
 use Lpdigital\Github\Entity\User;
-use Lpdigital\Github\Entity\Repository;
 
 class WatchEvent extends AbstractEventType implements ActionableEventInterface
 {
     public $action;
-    public $repository;
     public $user;
 
     public function getAction()
     {
         return $this->action;
-    }
-
-    public function getRepository()
-    {
-        return $this->repository;
     }
 
     public static function name()
@@ -64,7 +57,6 @@ class WatchEvent extends AbstractEventType implements ActionableEventInterface
         parent::createFromData($data);
 
         $this->action = $data['action'];
-        $this->repository = Repository::createFromData($data['repository']);
         $this->user = User::createFromData($data['sender']);
 
         return $this;

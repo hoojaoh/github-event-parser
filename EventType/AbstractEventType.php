@@ -27,14 +27,14 @@ use Lpdigital\Github\Exception\RepositoryNotFoundException;
 abstract class AbstractEventType implements GithubEventInterface
 {
     private $data;
-    private $repository;
+    public $repository;
 
-    public function payload()
+    public function getPayload()
     {
         return $this->data;
     }
 
-    public function repository()
+    public function getRepository()
     {
         return $this->repository;
     }

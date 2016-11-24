@@ -22,13 +22,11 @@
 namespace Lpdigital\Github\EventType;
 
 use Lpdigital\Github\Entity\Page;
-use Lpdigital\Github\Entity\Repository;
 use Lpdigital\Github\Entity\User;
 
 class GollumEvent extends AbstractEventType
 {
     public $pages;
-    public $repository;
     public $sender;
 
     public static function name()
@@ -45,7 +43,6 @@ class GollumEvent extends AbstractEventType
     {
         parent::createFromData($data);
 
-        $this->repository = Repository::createFromData($data['repository']);
         $this->sender = User::createFromData($data['sender']);
         $this->pages = $this->parsePages($data['pages']);
 
