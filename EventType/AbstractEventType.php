@@ -21,13 +21,22 @@
 
 namespace Lpdigital\Github\EventType;
 
+use Lpdigital\Github\Entity\Repository;
+use Lpdigital\Github\Exception\RepositoryNotFoundException;
+
 abstract class AbstractEventType implements GithubEventInterface
 {
     private $data;
+    public $repository;
 
-    public function payload()
+    public function getPayload()
     {
         return $this->data;
+    }
+
+    public function getRepository()
+    {
+        return $this->repository;
     }
 
     public static function fields()
@@ -54,5 +63,11 @@ abstract class AbstractEventType implements GithubEventInterface
     public function createFromData($data)
     {
         $this->data = $data;
+
+        try {
+            $this->repository = Repository::createFromData($data['repository']);
+        } catch (\Exception $e) {
+            throw new RepositoryNotFoundException($e->getMessage());
+        }
     }
 }

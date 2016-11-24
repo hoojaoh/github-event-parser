@@ -22,22 +22,15 @@
 namespace Lpdigital\Github\EventType;
 
 use Lpdigital\Github\Entity\Release;
-use Lpdigital\Github\Entity\Repository;
 
 class ReleaseEvent extends AbstractEventType implements ActionableEventInterface
 {
     public $action;
-    public $repository;
     public $release;
 
     public function getAction()
     {
         return $this->action;
-    }
-
-    public function getRepository()
-    {
-        return $this->repository;
     }
 
     public static function name()
@@ -56,7 +49,6 @@ class ReleaseEvent extends AbstractEventType implements ActionableEventInterface
 
         $this->action = $data['action'];
         $this->release = Release::createFromData($data['release']);
-        $this->repository = Repository::createFromData($data['repository']);
 
         return $this;
     }

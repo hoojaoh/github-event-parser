@@ -204,6 +204,22 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
 
         $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'pull_request_event.json'), true);
         $event = $this->resolver->resolve($jsonReceived);
-        $commits = $event->pullRequest->getCommits();
+        $event->pullRequest->getCommits();
+    }
+
+    public function testResolveWithMissingRepositoryThrowsException()
+    {
+        $this->setExpectedException('Lpdigital\Github\Exception\RepositoryNotFoundException');
+
+        $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'repository_not_found.json'), true);
+        $this->resolver->resolve($jsonReceived);
+    }
+
+    public function testResolveWithMalformedRepositoryThrowsException()
+    {
+        $this->setExpectedException('Lpdigital\Github\Exception\RepositoryNotFoundException');
+
+        $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'repository_malformed.json'), true);
+        $this->resolver->resolve($jsonReceived);
     }
 }

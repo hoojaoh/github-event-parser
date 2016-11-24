@@ -27,7 +27,6 @@ class ForkEvent extends AbstractEventType
 {
     public $forkedRepository;
     public $owner;
-    public $repository;
     public $forker;
 
     public static function name()
@@ -46,7 +45,6 @@ class ForkEvent extends AbstractEventType
 
         $this->forkedRepository = Repository::createFromData($data['forkee']);
         $this->owner = $this->forkedRepository->getOwner();
-        $this->repository = Repository::createFromData($data['repository']);
         $this->forker = $this->repository->getOwner();
 
         return $this;

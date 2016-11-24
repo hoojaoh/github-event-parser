@@ -28,7 +28,6 @@ use Lpdigital\Github\Entity\User;
 class DeploymentStatusEvent extends AbstractEventType
 {
     public $deployment;
-    public $repository;
     public $sender;
 
     public static function name()
@@ -46,7 +45,6 @@ class DeploymentStatusEvent extends AbstractEventType
         parent::createFromData($data);
 
         $this->deployment = Deployment::createFromData($data['deployment']);
-        $this->repository = Repository::createFromData($data['repository']);
         $this->sender = User::createFromData($data['sender']);
 
         return $this;
