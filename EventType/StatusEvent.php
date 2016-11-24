@@ -46,6 +46,8 @@ class StatusEvent extends AbstractEventType
 
     public function createFromData($data)
     {
+        parent::createFromData($data);
+
         $this->branches = $data['branches'];
         $this->committer = User::createFromData($data['commit']['committer']);
         $this->description = $data['description'];

@@ -42,6 +42,8 @@ class ForkEvent extends AbstractEventType
 
     public function createFromData($data)
     {
+        parent::createFromData($data);
+
         $this->forkedRepository = Repository::createFromData($data['forkee']);
         $this->owner = $this->forkedRepository->getOwner();
         $this->repository = Repository::createFromData($data['repository']);

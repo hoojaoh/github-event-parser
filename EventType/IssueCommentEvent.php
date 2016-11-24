@@ -55,6 +55,8 @@ class IssueCommentEvent extends AbstractEventType implements ActionableEventInte
 
     public function createFromData($data)
     {
+        parent::createFromData($data);
+
         $this->action = $data['action'];
         $this->issue = Issue::createFromData($data['issue']);
         $this->comment = Comment::createFromData($data['comment']);

@@ -57,6 +57,8 @@ class IssuesEvent extends AbstractEventType implements ActionableEventInterface
 
     public function createFromData($data)
     {
+        parent::createFromData($data);
+
         $this->action = $data['action'];
         $this->assignee = isset($data['assignee']) ? User::createFromData($data['assignee']) : null;
         $this->label = isset($data['label']) ? Label::createFromData($data['label']) : null;

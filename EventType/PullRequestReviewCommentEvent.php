@@ -67,6 +67,8 @@ class PullRequestReviewCommentEvent extends AbstractEventType implements Actiona
 
     public function createFromData($data)
     {
+        parent::createFromData($data);
+
         $this->action = $data['action'];
         $this->comment = Comment::createFromData($data['comment']);
         $this->pullRequest = PullRequest::createFromData($data['pull_request']);

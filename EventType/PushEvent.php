@@ -48,6 +48,8 @@ class PushEvent extends AbstractEventType
 
     public function createFromData($data)
     {
+        parent::createFromData($data);
+
         $this->before = $data['before'];
         $this->commits = $data['commits'];
         $this->distinctSize = $data['distinct_size'];

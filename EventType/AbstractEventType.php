@@ -23,6 +23,13 @@ namespace Lpdigital\Github\EventType;
 
 abstract class AbstractEventType implements GithubEventInterface
 {
+    private $data;
+
+    public function payload()
+    {
+        return $this->data;
+    }
+
     public static function fields()
     {
         return [];
@@ -42,5 +49,10 @@ abstract class AbstractEventType implements GithubEventInterface
         }
 
         return true;
+    }
+
+    public function createFromData($data)
+    {
+        $this->data = $data;
     }
 }

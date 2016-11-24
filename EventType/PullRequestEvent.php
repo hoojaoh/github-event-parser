@@ -55,6 +55,8 @@ class PullRequestEvent extends AbstractEventType implements ActionableEventInter
 
     public function createFromData($data)
     {
+        parent::createFromData($data);
+
         $this->action = $data['action'];
         $this->number = $data['number'];
         $this->pullRequest = PullRequest::createFromData($data['pull_request']);

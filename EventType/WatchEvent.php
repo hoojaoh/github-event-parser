@@ -61,6 +61,8 @@ class WatchEvent extends AbstractEventType implements ActionableEventInterface
 
     public function createFromData($data)
     {
+        parent::createFromData($data);
+
         $this->action = $data['action'];
         $this->repository = Repository::createFromData($data['repository']);
         $this->user = User::createFromData($data['sender']);

@@ -43,6 +43,8 @@ class DeploymentStatusEvent extends AbstractEventType
 
     public function createFromData($data)
     {
+        parent::createFromData($data);
+
         $this->deployment = Deployment::createFromData($data['deployment']);
         $this->repository = Repository::createFromData($data['repository']);
         $this->sender = User::createFromData($data['sender']);
