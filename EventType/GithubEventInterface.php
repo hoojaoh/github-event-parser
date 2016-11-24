@@ -24,7 +24,7 @@ namespace Lpdigital\Github\EventType;
 interface GithubEventInterface
 {
     /**
-     * @return array array of fields that need to be present to define the event
+     * @return array list of fields that need to be present to define the event
      */
     public static function fields();
 
@@ -34,14 +34,14 @@ interface GithubEventInterface
     public static function name();
 
     /**
-     * @param array data array to be set
+     * @param $data array data of the event
      *
      * @return bool validation rule
      */
     public static function isValid($data);
 
     /**
-     * @param $data
+     * @param $data array data of the event
      *
      * @return GithubEventInterface
      */
