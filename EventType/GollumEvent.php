@@ -43,6 +43,8 @@ class GollumEvent extends AbstractEventType
 
     public function createFromData($data)
     {
+        parent::createFromData($data);
+
         $this->repository = Repository::createFromData($data['repository']);
         $this->sender = User::createFromData($data['sender']);
         $this->pages = $this->parsePages($data['pages']);

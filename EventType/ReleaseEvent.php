@@ -52,6 +52,8 @@ class ReleaseEvent extends AbstractEventType implements ActionableEventInterface
 
     public function createFromData($data)
     {
+        parent::createFromData($data);
+
         $this->action = $data['action'];
         $this->release = Release::createFromData($data['release']);
         $this->repository = Repository::createFromData($data['repository']);
