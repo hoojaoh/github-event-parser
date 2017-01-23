@@ -29,9 +29,25 @@ use Lpdigital\Github\Entity\User;
 class IssuesEvent extends RepositoryAwareEventType implements ActionableEventInterface
 {
     public $action;
+
+    /**
+     * @var User|null
+     */
     public $assignee;
+
+    /**
+     * @var Issue
+     */
     public $issue;
+
+    /**
+     * @var Label|null
+     */
     public $label;
+
+    /**
+     * @var User
+     */
     public $sender;
 
     public function getAction()

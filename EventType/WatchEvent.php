@@ -26,6 +26,10 @@ use Lpdigital\Github\Entity\User;
 class WatchEvent extends RepositoryAwareEventType implements ActionableEventInterface
 {
     public $action;
+
+    /**
+     * @var User
+     */
     public $user;
 
     public function getAction()

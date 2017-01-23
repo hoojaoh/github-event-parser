@@ -31,10 +31,18 @@ class Issue
     private $id;
     private $number;
     private $title;
+
+    /**
+     * @var User
+     */
     private $user;
     private $labels;
     private $state;
     private $isLocked;
+
+    /**
+     * @var User|null
+     */
     private $assignee;
     private $milestone;
     private $commentsCount;

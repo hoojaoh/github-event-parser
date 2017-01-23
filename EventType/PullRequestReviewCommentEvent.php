@@ -28,8 +28,20 @@ use Lpdigital\Github\Entity\User;
 class PullRequestReviewCommentEvent extends RepositoryAwareEventType implements ActionableEventInterface
 {
     public $action;
+
+    /**
+     * @var Comment
+     */
     public $comment;
+
+    /**
+     * @var PullRequest
+     */
     public $pullRequest;
+
+    /**
+     * @var User
+     */
     public $sender;
 
     public function getAction()

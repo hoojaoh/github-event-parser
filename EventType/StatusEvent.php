@@ -26,6 +26,10 @@ use Lpdigital\Github\Entity\User;
 class StatusEvent extends RepositoryAwareEventType
 {
     public $branches;
+
+    /**
+     * @var User
+     */
     public $committer;
     public $description;
     public $sha;

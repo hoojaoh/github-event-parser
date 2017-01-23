@@ -26,6 +26,10 @@ use Lpdigital\Github\Entity\Release;
 class ReleaseEvent extends RepositoryAwareEventType implements ActionableEventInterface
 {
     public $action;
+
+    /**
+     * @var Release
+     */
     public $release;
 
     public function getAction()

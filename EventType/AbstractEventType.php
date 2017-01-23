@@ -25,6 +25,9 @@ use Lpdigital\Github\Entity\Integration;
 
 abstract class AbstractEventType implements GithubEventInterface
 {
+    /**
+     * @var array
+     */
     private $data;
 
     /**

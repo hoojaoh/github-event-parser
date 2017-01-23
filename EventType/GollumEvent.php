@@ -26,7 +26,14 @@ use Lpdigital\Github\Entity\User;
 
 class GollumEvent extends RepositoryAwareEventType
 {
+    /**
+     * @var array
+     */
     public $pages;
+
+    /**
+     * @var User
+     */
     public $sender;
 
     public static function name()

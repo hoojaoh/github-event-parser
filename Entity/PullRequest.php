@@ -35,6 +35,10 @@ class PullRequest
     private $state;
     private $isLocked;
     private $title;
+
+    /**
+     * @var User
+     */
     private $user;
     private $body;
     private $createdAt;
@@ -42,6 +46,10 @@ class PullRequest
     private $closedAt;
     private $mergedAt;
     private $mergeCommitSha;
+
+    /**
+     * @var User|null
+     */
     private $assignee;
     private $milestone;
     private $commitsUrl;
@@ -51,6 +59,10 @@ class PullRequest
     private $isMerged;
     private $isMergeable;
     private $mergeableState;
+
+    /**
+     * @var User|null
+     */
     private $mergedBy;
     private $commentsCount;
     private $reviewCommentsCount;
