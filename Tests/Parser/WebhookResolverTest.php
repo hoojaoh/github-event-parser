@@ -196,6 +196,16 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf("Lpdigital\Github\Entity\Commit", $commit);
     }
 
+    public function testResolvePullRequestHasIntegration()
+    {
+        ini_restore('user_agent');
+        ini_set('user_agent', 'GitHub event parser user agent');
+        $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'pull_request_event.json'), true);
+        $event = $this->resolver->resolve($jsonReceived);
+
+        $this->assertInstanceOf("Lpdigital\Github\Entity\Integration", $event->integration);
+    }
+
     public function testResolvePullRequestEventCommitThrowsException()
     {
         $this->setExpectedException('Lpdigital\Github\Exception\UserAgentNotFoundException');
