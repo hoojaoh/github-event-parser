@@ -897,7 +897,7 @@ class PullRequest
             throw new AllowUrlFileOpenException();
         }
 
-        $jsonResponse = file_get_contents($this->getCommitsUrl());
+        $jsonResponse = $this->getFileContent($this->getCommitsUrl(), ini_get('user_agent'));
         $response = json_decode($jsonResponse, true);
 
         foreach ($response as $commitArray) {
@@ -937,5 +937,24 @@ class PullRequest
     public function getBase()
     {
         return $this->base;
+    }
+
+    /**
+     * A better file_get_contents
+     */
+    private function getFileContent($url, $userAgent)
+    {
+        $opts = [
+            'http' => [
+                'method' => 'GET',
+                'header' => [
+                    'User-Agent: '. $userAgent
+                ]
+            ]
+        ];
+
+        $context = stream_context_create($opts);
+
+        return file_get_contents($url, false, $context);
     }
 }
