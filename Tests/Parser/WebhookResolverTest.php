@@ -25,14 +25,23 @@ use Lpdigital\Github\Parser\WebhookResolver;
 
 class WebhookResolverTest extends \PHPUnit_Framework_TestCase
 {
+    /** @var $userAgent string */
+    public static $userAgent;
+
     /** @var $resolver \Lpdigital\Github\Parser\WebhookResolver */
     private $resolver;
 
     /** @var $jsonDataFolder string */
     private $jsonDataFolder;
 
+    public static function setUpBeforeClass()
+    {
+        self::$userAgent = 'MyClient/1.0.0';
+    }
+
     public function setUp()
     {
+        ini_set('user_agent', self::$userAgent);
         $this->resolver = new WebhookResolver();
         $this->jsonDataFolder = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'json-data'.DIRECTORY_SEPARATOR;
     }
@@ -180,8 +189,6 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
 
     public function testResolvePullRequestEventCommitsOk()
     {
-        ini_restore('user_agent');
-        ini_set('user_agent', 'GitHub event parser user agent');
         $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'pull_request_event.json'), true);
         $event = $this->resolver->resolve($jsonReceived);
 
@@ -198,8 +205,6 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
 
     public function testResolvePullRequestHasIntegration()
     {
-        ini_restore('user_agent');
-        ini_set('user_agent', 'GitHub event parser user agent');
         $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'pull_request_event.json'), true);
         $event = $this->resolver->resolve($jsonReceived);
 
@@ -208,9 +213,8 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
 
     public function testResolvePullRequestEventCommitThrowsException()
     {
-        $this->setExpectedException('Lpdigital\Github\Exception\UserAgentNotFoundException');
-        ini_restore('user_agent');
         ini_set('user_agent', '');
+        $this->setExpectedException('Lpdigital\Github\Exception\UserAgentNotFoundException');
 
         $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'pull_request_event.json'), true);
         $event = $this->resolver->resolve($jsonReceived);
