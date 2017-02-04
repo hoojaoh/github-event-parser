@@ -24,7 +24,7 @@ namespace Lpdigital\Github\EventType;
 use Lpdigital\Github\Entity\Deployment;
 use Lpdigital\Github\Entity\User;
 
-class DeploymentStatusEvent extends AbstractEventType
+class DeploymentStatusEvent extends RepositoryAwareEventType
 {
     public $deployment;
     public $sender;

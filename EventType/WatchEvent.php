@@ -23,7 +23,7 @@ namespace Lpdigital\Github\EventType;
 
 use Lpdigital\Github\Entity\User;
 
-class WatchEvent extends AbstractEventType implements ActionableEventInterface
+class WatchEvent extends RepositoryAwareEventType implements ActionableEventInterface
 {
     public $action;
     public $user;

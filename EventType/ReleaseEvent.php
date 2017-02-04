@@ -23,7 +23,7 @@ namespace Lpdigital\Github\EventType;
 
 use Lpdigital\Github\Entity\Release;
 
-class ReleaseEvent extends AbstractEventType implements ActionableEventInterface
+class ReleaseEvent extends RepositoryAwareEventType implements ActionableEventInterface
 {
     public $action;
     public $release;

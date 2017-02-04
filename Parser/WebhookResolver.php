@@ -44,6 +44,8 @@ class WebhookResolver
             'Lpdigital\Github\EventType\ForkEvent',
             'Lpdigital\Github\EventType\DeploymentStatusEvent',
             'Lpdigital\Github\EventType\GollumEvent',
+            'Lpdigital\Github\EventType\IntegrationInstallationEvent',
+            'Lpdigital\Github\EventType\IntegrationInstallationRepositoriesEvent',
             'Lpdigital\Github\EventType\PullRequestEvent',
             'Lpdigital\Github\EventType\PullRequestReviewCommentEvent',
             'Lpdigital\Github\EventType\PushEvent',

@@ -21,47 +21,45 @@
 
 namespace Lpdigital\Github\EventType;
 
-use Lpdigital\Github\Entity\Integration;
+use Lpdigital\Github\Entity\User;
 
-abstract class AbstractEventType implements GithubEventInterface
+class IntegrationInstallationEvent extends AbstractEventType implements ActionableEventInterface
 {
-    private $data;
+    /**
+     * @var string
+     */
+    public $action;
 
     /**
-     * @var Integration|null
+     * @var User
      */
-    public $integration;
+    public $sender;
 
-    public function getPayload()
+    /**
+     * {@inheritdoc}
+     */
+    public function getAction()
     {
-        return $this->data;
-    }
-
-    public static function fields()
-    {
-        return [];
+        return $this->action;
     }
 
     public static function name()
     {
-        return get_called_class();
+        return 'IntegrationInstallationEvent';
     }
 
-    public static function isValid($data)
+    public static function fields()
     {
-        foreach (static::fields() as $field) {
-            if ((isset($data[$field]) || array_key_exists($field, $data)) === false) {
-                return false;
-            }
-        }
-
-        return true;
+        return ['action', 'installation'];
     }
 
     public function createFromData($data)
     {
-        $this->data = $data;
+        parent::createFromData($data);
 
-        $this->integration = isset($data['installation']) ? Integration::createFromData($data['installation']) : null;
+        $this->action = $data['action'];
+        $this->sender = User::createFromData($data['sender']);
+
+        return $this;
     }
 }

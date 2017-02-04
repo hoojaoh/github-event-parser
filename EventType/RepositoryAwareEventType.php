@@ -21,47 +21,26 @@
 
 namespace Lpdigital\Github\EventType;
 
-use Lpdigital\Github\Entity\Integration;
+use Lpdigital\Github\Entity\Repository;
+use Lpdigital\Github\Exception\RepositoryNotFoundException;
 
-abstract class AbstractEventType implements GithubEventInterface
+abstract class RepositoryAwareEventType extends AbstractEventType
 {
-    private $data;
+    public $repository;
 
-    /**
-     * @var Integration|null
-     */
-    public $integration;
-
-    public function getPayload()
+    public function getRepository()
     {
-        return $this->data;
-    }
-
-    public static function fields()
-    {
-        return [];
-    }
-
-    public static function name()
-    {
-        return get_called_class();
-    }
-
-    public static function isValid($data)
-    {
-        foreach (static::fields() as $field) {
-            if ((isset($data[$field]) || array_key_exists($field, $data)) === false) {
-                return false;
-            }
-        }
-
-        return true;
+        return $this->repository;
     }
 
     public function createFromData($data)
     {
-        $this->data = $data;
+        parent::createFromData($data);
 
-        $this->integration = isset($data['installation']) ? Integration::createFromData($data['installation']) : null;
+        try {
+            $this->repository = Repository::createFromData($data['repository']);
+        } catch (\Exception $e) {
+            throw new RepositoryNotFoundException($e->getMessage());
+        }
     }
 }
