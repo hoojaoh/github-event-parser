@@ -25,7 +25,7 @@ use Lpdigital\Github\Entity\PullRequest;
 use Lpdigital\Github\Entity\Repository;
 use Lpdigital\Github\Entity\User;
 
-class PullRequestEvent extends AbstractEventType implements ActionableEventInterface
+class PullRequestEvent extends RepositoryAwareEventType implements ActionableEventInterface
 {
     public $action;
     public $number;

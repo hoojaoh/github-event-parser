@@ -24,7 +24,7 @@ namespace Lpdigital\Github\EventType;
 use Lpdigital\Github\Entity\Page;
 use Lpdigital\Github\Entity\User;
 
-class GollumEvent extends AbstractEventType
+class GollumEvent extends RepositoryAwareEventType
 {
     public $pages;
     public $sender;

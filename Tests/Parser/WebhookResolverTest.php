@@ -236,4 +236,28 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'repository_malformed.json'), true);
         $this->resolver->resolve($jsonReceived);
     }
+
+    public function testResolveIntegrationInstallationEvent()
+    {
+        $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'integration_installation_event.json'), true);
+        $event = $this->resolver->resolve($jsonReceived);
+
+        $this->assertInstanceOf("Lpdigital\Github\EventType\IntegrationInstallationEvent", $event);
+        $this->assertInstanceOf("Lpdigital\Github\Entity\Integration", $event->integration);
+        $this->assertInstanceOf("Lpdigital\Github\Entity\User", $event->sender);
+
+    }
+
+    public function testResolveIntegrationInstallationRepositoriesEvent()
+    {
+        $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'integration_installation_repositories_event.json'), true);
+        $event = $this->resolver->resolve($jsonReceived);
+
+        $this->assertInstanceOf("Lpdigital\Github\EventType\IntegrationInstallationRepositoriesEvent", $event);
+        $this->assertInstanceOf("Lpdigital\Github\Entity\Integration", $event->integration);
+        $this->assertInstanceOf("Lpdigital\Github\Entity\User", $event->sender);
+        $this->assertInternalType('string', $event->repositorySelection);
+        $this->assertInternalType('array', $event->repositoryAdded);
+        $this->assertInternalType('array', $event->repositoryRemoved);
+    }
 }

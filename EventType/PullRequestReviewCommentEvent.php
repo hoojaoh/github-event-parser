@@ -25,7 +25,7 @@ use Lpdigital\Github\Entity\Comment;
 use Lpdigital\Github\Entity\PullRequest;
 use Lpdigital\Github\Entity\User;
 
-class PullRequestReviewCommentEvent extends AbstractEventType implements ActionableEventInterface
+class PullRequestReviewCommentEvent extends RepositoryAwareEventType implements ActionableEventInterface
 {
     public $action;
     public $comment;

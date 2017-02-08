@@ -23,7 +23,7 @@ namespace Lpdigital\Github\EventType;
 
 use Lpdigital\Github\Entity\User;
 
-class StatusEvent extends AbstractEventType
+class StatusEvent extends RepositoryAwareEventType
 {
     public $branches;
     public $committer;

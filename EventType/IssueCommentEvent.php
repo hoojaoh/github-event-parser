@@ -24,7 +24,7 @@ namespace Lpdigital\Github\EventType;
 use Lpdigital\Github\Entity\Comment;
 use Lpdigital\Github\Entity\Issue;
 
-class IssueCommentEvent extends AbstractEventType implements ActionableEventInterface
+class IssueCommentEvent extends RepositoryAwareEventType implements ActionableEventInterface
 {
     public $action;
     public $issue;

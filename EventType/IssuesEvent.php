@@ -26,7 +26,7 @@ use Lpdigital\Github\Entity\Label;
 use Lpdigital\Github\Entity\Repository;
 use Lpdigital\Github\Entity\User;
 
-class IssuesEvent extends AbstractEventType implements ActionableEventInterface
+class IssuesEvent extends RepositoryAwareEventType implements ActionableEventInterface
 {
     public $action;
     public $assignee;

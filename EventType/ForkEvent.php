@@ -23,7 +23,7 @@ namespace Lpdigital\Github\EventType;
 
 use Lpdigital\Github\Entity\Repository;
 
-class ForkEvent extends AbstractEventType
+class ForkEvent extends RepositoryAwareEventType
 {
     public $forkedRepository;
     public $owner;
