@@ -63,7 +63,7 @@ class Integration
         $this->installationId = $data['id'];
         $this->account = isset($data['account']) ? User::createFromData($data['account']) : null;
         $this->accessTokenUrl = isset($data['access_tokens_url']) ? $data['access_tokens_url'] : null;
-        $this->repositoriesUrl = isset($data['repositoriesUrl']) ? $data['repositoriesUrl'] : null;
+        $this->repositoriesUrl = isset($data['repositories_url']) ? $data['repositories_url'] : null;
         $this->htmlUrl = isset($data['html_url']) ? $data['html_url'] : null;
     }
 

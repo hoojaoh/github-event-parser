@@ -246,6 +246,8 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf("Lpdigital\Github\Entity\Integration", $event->integration);
         $this->assertInstanceOf("Lpdigital\Github\Entity\User", $event->sender);
 
+        $this->assertInternalType('string', $event->integration->getAccessTokenUrl());
+        $this->assertInternalType('string', $event->integration->getRepositoriesUrl());
     }
 
     public function testResolveIntegrationInstallationRepositoriesEvent()
@@ -259,5 +261,9 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertInternalType('string', $event->repositorySelection);
         $this->assertInternalType('array', $event->repositoryAdded);
         $this->assertInternalType('array', $event->repositoryRemoved);
+
+        $this->assertInternalType('string', $event->integration->getAccessTokenUrl());
+        $this->assertInternalType('string', $event->integration->getRepositoriesUrl());
+        $this->assertInternalType('string', $event->integration->getHtmlUrl());
     }
 }
