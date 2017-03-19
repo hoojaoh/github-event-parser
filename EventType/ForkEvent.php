@@ -22,11 +22,23 @@
 namespace Lpdigital\Github\EventType;
 
 use Lpdigital\Github\Entity\Repository;
+use Lpdigital\Github\Entity\User;
 
 class ForkEvent extends RepositoryAwareEventType
 {
+    /**
+     * @var Repository
+     */
     public $forkedRepository;
+
+    /**
+     * @var User
+     */
     public $owner;
+
+    /**
+     * @var User
+     */
     public $forker;
 
     public static function name()

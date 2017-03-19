@@ -26,8 +26,14 @@ use Lpdigital\Github\Exception\RepositoryNotFoundException;
 
 abstract class RepositoryAwareEventType extends AbstractEventType
 {
+    /**
+     * @var Repository
+     */
     public $repository;
 
+    /**
+     * @return Repository
+     */
     public function getRepository()
     {
         return $this->repository;

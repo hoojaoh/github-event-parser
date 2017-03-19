@@ -23,12 +23,26 @@ namespace Lpdigital\Github\EventType;
 
 use Lpdigital\Github\Entity\Comment;
 use Lpdigital\Github\Entity\Issue;
+use Lpdigital\Github\Entity\User;
 
 class IssueCommentEvent extends RepositoryAwareEventType implements ActionableEventInterface
 {
     public $action;
+
+    /**
+     * @var Issue
+     */
     public $issue;
+
+    /**
+     * @var User
+     */
     public $user;
+
+    /**
+     * @var Comment
+     */
+    public $comment;
 
     public function getAction()
     {

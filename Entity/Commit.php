@@ -30,7 +30,15 @@ class Commit
 {
     private $sha;
     private $url;
+
+    /**
+     * @var CommitUser
+     */
     private $author;
+
+    /**
+     * @var CommitUser
+     */
     private $committer;
     private $message;
     private $tree;

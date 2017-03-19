@@ -26,6 +26,10 @@ class Repository
     private $id;
     private $name;
     private $fullName;
+
+    /**
+     * @var User
+     */
     private $owner;
     private $isPrivate;
     private $htmlUrl;
@@ -240,7 +244,7 @@ class Repository
     /**
      * Gets the value of owner.
      *
-     * @return mixed
+     * @return User
      */
     public function getOwner()
     {
@@ -250,11 +254,11 @@ class Repository
     /**
      * Sets the value of owner.
      *
-     * @param mixed $owner the owner
+     * @param User $owner the owner
      *
      * @return self
      */
-    public function setOwner($owner)
+    public function setOwner(User $owner)
     {
         $this->owner = $owner;
 

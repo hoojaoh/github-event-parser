@@ -20,8 +20,6 @@
 
 namespace Lpdigital\Github\Entity;
 
-use DateTime;
-
 class CommitUser
 {
     private $date;
@@ -35,7 +33,7 @@ class CommitUser
 
     public function __construct($data)
     {
-        $this->date = new DateTime($data['date']);
+        $this->date = new \DateTime($data['date']);
         $this->name = $data['name'];
         $this->email = $data['email'];
     }

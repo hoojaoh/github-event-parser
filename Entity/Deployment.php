@@ -31,6 +31,10 @@ class Deployment
     private $payload;
     private $environment;
     private $description;
+
+    /**
+     * @var User
+     */
     private $creator;
     private $createdAt;
     private $updatedAt;

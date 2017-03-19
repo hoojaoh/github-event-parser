@@ -29,7 +29,15 @@ class PullRequestEvent extends RepositoryAwareEventType implements ActionableEve
 {
     public $action;
     public $number;
+
+    /**
+     * @var PullRequest
+     */
     public $pullRequest;
+
+    /**
+     * @var User
+     */
     public $sender;
 
     public function getAction()

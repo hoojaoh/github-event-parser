@@ -26,7 +26,14 @@ use Lpdigital\Github\Entity\User;
 
 class DeploymentStatusEvent extends RepositoryAwareEventType
 {
+    /**
+     * @var Deployment
+     */
     public $deployment;
+
+    /**
+     * @var User
+     */
     public $sender;
 
     public static function name()

@@ -26,6 +26,10 @@ class Comment
     private $url;
     private $htmlUrl;
     private $id;
+
+    /**
+     * @var User
+     */
     private $user;
     private $position;
     private $line;

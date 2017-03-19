@@ -31,6 +31,10 @@ class PushEvent extends RepositoryAwareEventType
     public $head;
     public $pusher;
     public $ref;
+
+    /**
+     * @var User
+     */
     public $sender;
     public $size;
 
