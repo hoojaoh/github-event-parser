@@ -50,20 +50,6 @@ class Label
     }
 
     /**
-     * Sets the value of url.
-     *
-     * @param mixed $url the url
-     *
-     * @return self
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of name.
      *
      * @return mixed
@@ -74,20 +60,6 @@ class Label
     }
 
     /**
-     * Sets the value of name.
-     *
-     * @param mixed $name the name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of color.
      *
      * @return mixed
@@ -95,19 +67,5 @@ class Label
     public function getColor()
     {
         return $this->color;
-    }
-
-    /**
-     * Sets the value of color.
-     *
-     * @param mixed $color the color
-     *
-     * @return self
-     */
-    public function setColor($color)
-    {
-        $this->color = $color;
-
-        return $this;
     }
 }

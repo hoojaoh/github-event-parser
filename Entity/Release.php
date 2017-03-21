@@ -62,27 +62,11 @@ class Release
     }
 
     /**
-     * @param mixed $assetsUrl
-     */
-    public function setAssetsUrl($assetsUrl)
-    {
-        $this->assetsUrl = $assetsUrl;
-    }
-
-    /**
      * @return mixed
      */
     public function getUploadUrl()
     {
         return $this->uploadUrl;
-    }
-
-    /**
-     * @param mixed $uploadUrl
-     */
-    public function setUploadUrl($uploadUrl)
-    {
-        $this->uploadUrl = $uploadUrl;
     }
 
     /**
@@ -94,27 +78,11 @@ class Release
     }
 
     /**
-     * @param mixed $htmlUrl
-     */
-    public function setHtmlUrl($htmlUrl)
-    {
-        $this->htmlUrl = $htmlUrl;
-    }
-
-    /**
      * @return mixed
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
     }
 
     /**
@@ -126,27 +94,11 @@ class Release
     }
 
     /**
-     * @param mixed $tagName
-     */
-    public function setTagName($tagName)
-    {
-        $this->tagName = $tagName;
-    }
-
-    /**
      * @return mixed
      */
     public function getTargetCommitish()
     {
         return $this->targetCommitish;
-    }
-
-    /**
-     * @param mixed $targetCommitish
-     */
-    public function setTargetCommitish($targetCommitish)
-    {
-        $this->targetCommitish = $targetCommitish;
     }
 
     /**
@@ -158,27 +110,11 @@ class Release
     }
 
     /**
-     * @param mixed $isDraft
-     */
-    public function setDraft($isDraft)
-    {
-        $this->isDraft = $isDraft;
-    }
-
-    /**
      * @return mixed
      */
     public function getAuthor()
     {
         return $this->author;
-    }
-
-    /**
-     * @param mixed $author
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
     }
 
     /**
@@ -190,27 +126,11 @@ class Release
     }
 
     /**
-     * @param mixed $isPreRelease
-     */
-    public function setPreRelease($isPreRelease)
-    {
-        $this->isPreRelease = $isPreRelease;
-    }
-
-    /**
      * @return mixed
      */
     public function getCreatedAt()
     {
         return $this->createdAt;
-    }
-
-    /**
-     * @param mixed $createdAt
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
     }
 
     /**
@@ -222,27 +142,11 @@ class Release
     }
 
     /**
-     * @param mixed $publishedAt
-     */
-    public function setPublishedAt($publishedAt)
-    {
-        $this->publishedAt = $publishedAt;
-    }
-
-    /**
      * @return mixed
      */
     public function getAssets()
     {
         return $this->assets;
-    }
-
-    /**
-     * @param mixed $assets
-     */
-    public function setAssets($assets)
-    {
-        $this->assets = $assets;
     }
 
     /**
@@ -254,27 +158,11 @@ class Release
     }
 
     /**
-     * @param mixed $tarballUrl
-     */
-    public function setTarballUrl($tarballUrl)
-    {
-        $this->tarballUrl = $tarballUrl;
-    }
-
-    /**
      * @return mixed
      */
     public function getZipballUrl()
     {
         return $this->zipballUrl;
-    }
-
-    /**
-     * @param mixed $zipballUrl
-     */
-    public function setZipballUrl($zipballUrl)
-    {
-        $this->zipballUrl = $zipballUrl;
     }
 
     /**
@@ -286,14 +174,6 @@ class Release
     }
 
     /**
-     * @param mixed $body
-     */
-    public function setBody($body)
-    {
-        $this->body = $body;
-    }
-
-    /**
      * @return mixed
      */
     public function getRepository()
@@ -302,27 +182,11 @@ class Release
     }
 
     /**
-     * @param mixed $repository
-     */
-    public function setRepository($repository)
-    {
-        $this->repository = $repository;
-    }
-
-    /**
      * @return mixed
      */
     public function getSender()
     {
         return $this->sender;
-    }
-
-    /**
-     * @param mixed $sender
-     */
-    public function setSender($sender)
-    {
-        $this->sender = $sender;
     }
 
     /**
@@ -336,20 +200,6 @@ class Release
     }
 
     /**
-     * Sets the value of url.
-     *
-     * @param mixed $url the url
-     *
-     * @return self
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of name.
      *
      * @return mixed
@@ -357,19 +207,5 @@ class Release
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Sets the value of name.
-     *
-     * @param mixed $name the name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
     }
 }

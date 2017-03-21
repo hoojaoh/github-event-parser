@@ -54,18 +54,6 @@ class Page
     }
 
     /**
-     * @param string $pageName
-     *
-     * @return Page
-     */
-    public function setPageName($pageName)
-    {
-        $this->pageName = $pageName;
-
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function getTitle()
@@ -74,35 +62,11 @@ class Page
     }
 
     /**
-     * @param string $title
-     *
-     * @return Page
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function getSummary()
     {
         return $this->summary;
-    }
-
-    /**
-     * @param string $summary
-     *
-     * @return Page
-     */
-    public function setSummary($summary)
-    {
-        $this->summary = $summary;
-
-        return $this;
     }
 
     /**
@@ -116,18 +80,6 @@ class Page
     }
 
     /**
-     * @param string $action
-     *
-     * @return Page
-     */
-    public function setAction($action)
-    {
-        $this->action = $action;
-
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function getSha()
@@ -136,34 +88,10 @@ class Page
     }
 
     /**
-     * @param string $sha
-     *
-     * @return Page
-     */
-    public function setSha($sha)
-    {
-        $this->sha = $sha;
-
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function getHtmlUrl()
     {
         return $this->htmlUrl;
-    }
-
-    /**
-     * @param string $htmlUrl
-     *
-     * @return Page
-     */
-    public function setHtmlUrl($htmlUrl)
-    {
-        $this->htmlUrl = $htmlUrl;
-
-        return $this;
     }
 }

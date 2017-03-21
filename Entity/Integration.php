@@ -76,18 +76,6 @@ class Integration
     }
 
     /**
-     * @param int $installationId
-     *
-     * @return self
-     */
-    public function setInstallationId($installationId)
-    {
-        $this->installationId = $installationId;
-
-        return $this;
-    }
-
-    /**
      * @return User
      */
     public function getAccount()

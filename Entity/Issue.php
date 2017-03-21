@@ -90,20 +90,6 @@ class Issue
     }
 
     /**
-     * Sets the value of url.
-     *
-     * @param mixed $url the url
-     *
-     * @return self
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of labelsUrl.
      *
      * @return mixed
@@ -111,20 +97,6 @@ class Issue
     public function getLabelsUrl()
     {
         return $this->labelsUrl;
-    }
-
-    /**
-     * Sets the value of labelsUrl.
-     *
-     * @param mixed $labelsUrl the labels url
-     *
-     * @return self
-     */
-    public function setLabelsUrl($labelsUrl)
-    {
-        $this->labelsUrl = $labelsUrl;
-
-        return $this;
     }
 
     /**
@@ -138,20 +110,6 @@ class Issue
     }
 
     /**
-     * Sets the value of commentsUrl.
-     *
-     * @param mixed $commentsUrl the comments url
-     *
-     * @return self
-     */
-    public function setCommentsUrl($commentsUrl)
-    {
-        $this->commentsUrl = $commentsUrl;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of eventsUrl.
      *
      * @return mixed
@@ -159,20 +117,6 @@ class Issue
     public function getEventsUrl()
     {
         return $this->eventsUrl;
-    }
-
-    /**
-     * Sets the value of eventsUrl.
-     *
-     * @param mixed $eventsUrl the events url
-     *
-     * @return self
-     */
-    public function setEventsUrl($eventsUrl)
-    {
-        $this->eventsUrl = $eventsUrl;
-
-        return $this;
     }
 
     /**
@@ -186,20 +130,6 @@ class Issue
     }
 
     /**
-     * Sets the value of htmlUrl.
-     *
-     * @param mixed $htmlUrl the html url
-     *
-     * @return self
-     */
-    public function setHtmlUrl($htmlUrl)
-    {
-        $this->htmlUrl = $htmlUrl;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of id.
      *
      * @return mixed
@@ -207,20 +137,6 @@ class Issue
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Sets the value of id.
-     *
-     * @param mixed $id the id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     /**
@@ -234,20 +150,6 @@ class Issue
     }
 
     /**
-     * Sets the value of number.
-     *
-     * @param mixed $number the number
-     *
-     * @return self
-     */
-    public function setNumber($number)
-    {
-        $this->number = $number;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of title.
      *
      * @return mixed
@@ -255,20 +157,6 @@ class Issue
     public function getTitle()
     {
         return $this->title;
-    }
-
-    /**
-     * Sets the value of title.
-     *
-     * @param mixed $title the title
-     *
-     * @return self
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
     }
 
     /**
@@ -282,20 +170,6 @@ class Issue
     }
 
     /**
-     * Sets the value of user.
-     *
-     * @param mixed $user the user
-     *
-     * @return self
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of labels.
      *
      * @return mixed
@@ -303,20 +177,6 @@ class Issue
     public function getLabels()
     {
         return $this->labels;
-    }
-
-    /**
-     * Sets the value of labels.
-     *
-     * @param mixed $labels the labels
-     *
-     * @return self
-     */
-    public function setLabels($labels)
-    {
-        $this->labels = $labels;
-
-        return $this;
     }
 
     /**
@@ -330,20 +190,6 @@ class Issue
     }
 
     /**
-     * Sets the value of state.
-     *
-     * @param mixed $state the state
-     *
-     * @return self
-     */
-    public function setState($state)
-    {
-        $this->state = $state;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of isLocked.
      *
      * @return mixed
@@ -351,20 +197,6 @@ class Issue
     public function isLocked()
     {
         return $this->isLocked;
-    }
-
-    /**
-     * Sets the value of isLocked.
-     *
-     * @param mixed $isLocked the is locked
-     *
-     * @return self
-     */
-    public function setLocked($isLocked)
-    {
-        $this->isLocked = $isLocked;
-
-        return $this;
     }
 
     /**
@@ -378,20 +210,6 @@ class Issue
     }
 
     /**
-     * Sets the value of assignee.
-     *
-     * @param mixed $assignee the assignee
-     *
-     * @return self
-     */
-    public function setAssignee($assignee)
-    {
-        $this->assignee = $assignee;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of milestone.
      *
      * @return mixed
@@ -399,20 +217,6 @@ class Issue
     public function getMilestone()
     {
         return $this->milestone;
-    }
-
-    /**
-     * Sets the value of milestone.
-     *
-     * @param mixed $milestone the milestone
-     *
-     * @return self
-     */
-    public function setMilestone($milestone)
-    {
-        $this->milestone = $milestone;
-
-        return $this;
     }
 
     /**
@@ -426,20 +230,6 @@ class Issue
     }
 
     /**
-     * Sets the value of commentsCount.
-     *
-     * @param mixed $commentsCount the comments count
-     *
-     * @return self
-     */
-    public function setCommentsCount($commentsCount)
-    {
-        $this->commentsCount = $commentsCount;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of createdAt.
      *
      * @return mixed
@@ -447,20 +237,6 @@ class Issue
     public function getCreatedAt()
     {
         return $this->createdAt;
-    }
-
-    /**
-     * Sets the value of createdAt.
-     *
-     * @param mixed $createdAt the created at
-     *
-     * @return self
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
     }
 
     /**
@@ -474,20 +250,6 @@ class Issue
     }
 
     /**
-     * Sets the value of updatedAt.
-     *
-     * @param mixed $updatedAt the updated at
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of closedAt.
      *
      * @return mixed
@@ -498,20 +260,6 @@ class Issue
     }
 
     /**
-     * Sets the value of closedAt.
-     *
-     * @param mixed $closedAt the closed at
-     *
-     * @return self
-     */
-    public function setClosedAt($closedAt)
-    {
-        $this->closedAt = $closedAt;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of body.
      *
      * @return mixed
@@ -519,20 +267,6 @@ class Issue
     public function getBody()
     {
         return $this->body;
-    }
-
-    /**
-     * Sets the value of body.
-     *
-     * @param mixed $body the body
-     *
-     * @return self
-     */
-    public function setBody($body)
-    {
-        $this->body = $body;
-
-        return $this;
     }
 
     /**

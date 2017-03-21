@@ -82,20 +82,6 @@ class User
     }
 
     /**
-     * Sets the value of login.
-     *
-     * @param mixed $login the login
-     *
-     * @return self
-     */
-    public function setLogin($login)
-    {
-        $this->login = $login;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of id.
      *
      * @return mixed
@@ -103,20 +89,6 @@ class User
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Sets the value of id.
-     *
-     * @param mixed $id the id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     /**
@@ -130,20 +102,6 @@ class User
     }
 
     /**
-     * Sets the value of avatarUrl.
-     *
-     * @param mixed $avatarUrl the avatar url
-     *
-     * @return self
-     */
-    public function setAvatarUrl($avatarUrl)
-    {
-        $this->avatarUrl = $avatarUrl;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of gravatarId.
      *
      * @return mixed
@@ -151,20 +109,6 @@ class User
     public function getGravatarId()
     {
         return $this->gravatarId;
-    }
-
-    /**
-     * Sets the value of gravatarId.
-     *
-     * @param mixed $gravatarId the gravatar id
-     *
-     * @return self
-     */
-    public function setGravatarId($gravatarId)
-    {
-        $this->gravatarId = $gravatarId;
-
-        return $this;
     }
 
     /**
@@ -178,20 +122,6 @@ class User
     }
 
     /**
-     * Sets the value of apiUrl.
-     *
-     * @param mixed $apiUrl the api url
-     *
-     * @return self
-     */
-    public function setApiUrl($apiUrl)
-    {
-        $this->apiUrl = $apiUrl;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of htmlUrl.
      *
      * @return mixed
@@ -199,20 +129,6 @@ class User
     public function getHtmlUrl()
     {
         return $this->htmlUrl;
-    }
-
-    /**
-     * Sets the value of htmlUrl.
-     *
-     * @param mixed $htmlUrl the html url
-     *
-     * @return self
-     */
-    public function setHtmlUrl($htmlUrl)
-    {
-        $this->htmlUrl = $htmlUrl;
-
-        return $this;
     }
 
     /**
@@ -226,20 +142,6 @@ class User
     }
 
     /**
-     * Sets the value of followersUrl.
-     *
-     * @param mixed $followersUrl the followers url
-     *
-     * @return self
-     */
-    public function setFollowersUrl($followersUrl)
-    {
-        $this->followersUrl = $followersUrl;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of followingUrl.
      *
      * @return mixed
@@ -247,20 +149,6 @@ class User
     public function getFollowingUrl()
     {
         return $this->followingUrl;
-    }
-
-    /**
-     * Sets the value of followingUrl.
-     *
-     * @param mixed $followingUrl the following url
-     *
-     * @return self
-     */
-    public function setFollowingUrl($followingUrl)
-    {
-        $this->followingUrl = $followingUrl;
-
-        return $this;
     }
 
     /**
@@ -274,20 +162,6 @@ class User
     }
 
     /**
-     * Sets the value of gistsUrl.
-     *
-     * @param mixed $gistsUrl the gists url
-     *
-     * @return self
-     */
-    public function setGistsUrl($gistsUrl)
-    {
-        $this->gistsUrl = $gistsUrl;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of starredUrl.
      *
      * @return mixed
@@ -295,20 +169,6 @@ class User
     public function getStarredUrl()
     {
         return $this->starredUrl;
-    }
-
-    /**
-     * Sets the value of starredUrl.
-     *
-     * @param mixed $starrredUrl the starrred url
-     *
-     * @return self
-     */
-    public function setStarredUrl($starredUrl)
-    {
-        $this->starredUrl = $starredUrl;
-
-        return $this;
     }
 
     /**
@@ -322,20 +182,6 @@ class User
     }
 
     /**
-     * Sets the value of organizationsUrl.
-     *
-     * @param mixed $organizationsUrl the organizations url
-     *
-     * @return self
-     */
-    public function setOrganizationsUrl($organizationsUrl)
-    {
-        $this->organizationsUrl = $organizationsUrl;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of subscriptionsUrl.
      *
      * @return mixed
@@ -343,20 +189,6 @@ class User
     public function getSubscriptionsUrl()
     {
         return $this->subscriptionsUrl;
-    }
-
-    /**
-     * Sets the value of subscriptionsUrl.
-     *
-     * @param mixed $subscriptionsUrl the subscriptions url
-     *
-     * @return self
-     */
-    public function setSubscriptionsUrl($subscriptionsUrl)
-    {
-        $this->subscriptionsUrl = $subscriptionsUrl;
-
-        return $this;
     }
 
     /**
@@ -370,20 +202,6 @@ class User
     }
 
     /**
-     * Sets the value of repositoriesUrl.
-     *
-     * @param mixed $repositoriesUrl the repositories url
-     *
-     * @return self
-     */
-    public function setRepositoriesUrl($repositoriesUrl)
-    {
-        $this->repositoriesUrl = $repositoriesUrl;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of eventsUrl.
      *
      * @return mixed
@@ -391,20 +209,6 @@ class User
     public function getEventsUrl()
     {
         return $this->eventsUrl;
-    }
-
-    /**
-     * Sets the value of eventsUrl.
-     *
-     * @param mixed $eventsUrl the events url
-     *
-     * @return self
-     */
-    public function setEventsUrl($eventsUrl)
-    {
-        $this->eventsUrl = $eventsUrl;
-
-        return $this;
     }
 
     /**
@@ -418,20 +222,6 @@ class User
     }
 
     /**
-     * Sets the value of receivedEventsUrl.
-     *
-     * @param mixed $receivedEventsUrl the received events url
-     *
-     * @return self
-     */
-    public function setReceivedEventsUrl($receivedEventsUrl)
-    {
-        $this->receivedEventsUrl = $receivedEventsUrl;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of type.
      *
      * @return mixed
@@ -442,20 +232,6 @@ class User
     }
 
     /**
-     * Sets the value of type.
-     *
-     * @param mixed $type the type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of siteAdmin.
      *
      * @return mixed
@@ -463,19 +239,5 @@ class User
     public function getSiteAdmin()
     {
         return $this->siteAdmin;
-    }
-
-    /**
-     * Sets the value of siteAdmin.
-     *
-     * @param mixed $siteAdmin the site admin
-     *
-     * @return self
-     */
-    public function setSiteAdmin($siteAdmin)
-    {
-        $this->siteAdmin = $siteAdmin;
-
-        return $this;
     }
 }

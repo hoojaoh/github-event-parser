@@ -70,20 +70,6 @@ class Comment
     }
 
     /**
-     * Sets the value of url.
-     *
-     * @param mixed $url the url
-     *
-     * @return self
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of htmlUrl.
      *
      * @return mixed
@@ -94,20 +80,6 @@ class Comment
     }
 
     /**
-     * Sets the value of htmlUrl.
-     *
-     * @param mixed $htmlUrl the html url
-     *
-     * @return self
-     */
-    public function setHtmlUrl($htmlUrl)
-    {
-        $this->htmlUrl = $htmlUrl;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of id.
      *
      * @return mixed
@@ -115,20 +87,6 @@ class Comment
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Sets the value of id.
-     *
-     * @param mixed $id the id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     /**
@@ -152,20 +110,6 @@ class Comment
      }
 
     /**
-     * Sets the value of user.
-     *
-     * @param Lpdigital\Github\Entity\User $user the user
-     *
-     * @return self
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of position.
      *
      * @return mixed
@@ -173,20 +117,6 @@ class Comment
     public function getPosition()
     {
         return $this->position;
-    }
-
-    /**
-     * Sets the value of position.
-     *
-     * @param mixed $position the position
-     *
-     * @return self
-     */
-    public function setPosition($position)
-    {
-        $this->position = $position;
-
-        return $this;
     }
 
     /**
@@ -200,20 +130,6 @@ class Comment
     }
 
     /**
-     * Sets the value of line.
-     *
-     * @param mixed $line the line
-     *
-     * @return self
-     */
-    public function setLine($line)
-    {
-        $this->line = $line;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of path.
      *
      * @return mixed
@@ -221,20 +137,6 @@ class Comment
     public function getPath()
     {
         return $this->path;
-    }
-
-    /**
-     * Sets the value of path.
-     *
-     * @param mixed $path the path
-     *
-     * @return self
-     */
-    public function setPath($path)
-    {
-        $this->path = $path;
-
-        return $this;
     }
 
     /**
@@ -248,20 +150,6 @@ class Comment
     }
 
     /**
-     * Sets the value of commitId.
-     *
-     * @param mixed $commitId the commit id
-     *
-     * @return self
-     */
-    public function setCommitId($commitId)
-    {
-        $this->commitId = $commitId;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of createdAt.
      *
      * @return mixed
@@ -269,20 +157,6 @@ class Comment
     public function getCreatedAt()
     {
         return $this->createdAt;
-    }
-
-    /**
-     * Sets the value of createdAt.
-     *
-     * @param mixed $createdAt the created at
-     *
-     * @return self
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
     }
 
     /**
@@ -296,20 +170,6 @@ class Comment
     }
 
     /**
-     * Sets the value of updatedAt.
-     *
-     * @param mixed $updatedAt the updated at
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
      * Gets the value of body.
      *
      * @return mixed
@@ -317,20 +177,6 @@ class Comment
     public function getBody()
     {
         return $this->body;
-    }
-
-    /**
-     * Sets the value of body.
-     *
-     * @param mixed $body the body
-     *
-     * @return self
-     */
-    public function setBody($body)
-    {
-        $this->body = $body;
-
-        return $this;
     }
 
     /**
