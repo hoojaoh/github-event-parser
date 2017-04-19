@@ -43,14 +43,32 @@ class Release
     private $repository;
     private $sender;
 
-    public static function createFromData(array $data)
+    public static function createFromData(array $data, Repository $repository, User $sender)
     {
-        return new static($data);
+        return new static($data, $repository, $sender);
     }
 
-    public function __construct($data)
+    public function __construct(array $data, Repository $repository, User $sender)
     {
         $this->url = $data['url'];
+        $this->assetsUrl = $data['assets_url'];
+        $this->uploadUrl = $data['upload_url'];
+        $this->htmlUrl = $data['html_url'];
+        $this->id = $data['id'];
+        $this->tagName = $data['tag_name'];
+        $this->targetCommitish = $data['target_commitish'];
+        $this->name = $data['name'];
+        $this->isDraft = $data['draft'];
+        $this->author = User::createFromData($data['author']);
+        $this->isPreRelease = $data['prerelease'];
+        $this->createdAt = $data['created_at'];
+        $this->publishedAt = $data['published_at'];
+        $this->assets = $data['assets'];
+        $this->tarballUrl = $data['tarball_url'];
+        $this->zipballUrl = $data['zipball_url'];
+        $this->body = $data['body'];
+        $this->repository = $repository;
+        $this->sender = $sender;
     }
 
     /**
