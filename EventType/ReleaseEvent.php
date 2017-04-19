@@ -22,6 +22,7 @@
 namespace Lpdigital\Github\EventType;
 
 use Lpdigital\Github\Entity\Release;
+use Lpdigital\Github\Entity\User;
 
 class ReleaseEvent extends RepositoryAwareEventType implements ActionableEventInterface
 {
@@ -44,7 +45,7 @@ class ReleaseEvent extends RepositoryAwareEventType implements ActionableEventIn
 
     public static function fields()
     {
-        return ['action', 'release'];
+        return ['action', 'release', 'sender', 'repository'];
     }
 
     public function createFromData($data)
@@ -52,7 +53,12 @@ class ReleaseEvent extends RepositoryAwareEventType implements ActionableEventIn
         parent::createFromData($data);
 
         $this->action = $data['action'];
-        $this->release = Release::createFromData($data['release']);
+        $sender = User::createFromData($data['sender']);
+        $this->release = Release::createFromData(
+            $data['release'],
+            $this->repository,
+            $sender
+        );
 
         return $this;
     }

@@ -136,6 +136,7 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf("Lpdigital\Github\Entity\Release", $event->release);
         $this->assertEquals('published', $event->action);
         $this->assertEquals('https://api.github.com/repos/baxterthehacker/public-repo/releases/1261438', $event->release->getUrl());
+        $this->assertEquals('https://github.com/baxterthehacker/public-repo/releases/tag/0.0.1', $event->release->getHtmlUrl());
     }
 
     public function testResolveWatchEvent()
